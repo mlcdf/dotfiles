@@ -19,16 +19,11 @@ ls -s -f atom/config.cson ~/.atom/config.cson
 
 # git
 
-## config
-git config --global user.email "maxime.lcdf@gmail.com"
-git config --global user.name "Maxime Le Conte des Floris"
-
-## gpg signing
-git config --global user.signingkey EF94DD95
-
 ##
-ln -s -f git/gitignore ~/.gitignore
-ln -s -f it/gitconfig ~/.gitconfig
+rm ~/.gitignore
+ln -s -f $PWD"/git/gitignore" ~/.gitignore
+rm ~/.gitconfig
+ln -s -f $PWD"/git/gitconfig" ~/.gitconfig
 
 
 # node
@@ -60,17 +55,23 @@ sudo apt-get install zsh
 chsh -s $(which zsh)
 
 ## install z
-wget --directory-prefix=zsh https://raw.githubusercontent.com/rupa/z/master/z.sh
+if [ ! -f $PWD"/zsh/z.zsh" ]; then
+	wget --directory-prefix=zsh https://raw.githubusercontent.com/rupa/z/master/z.sh
+fi
+rm -rf ~/.oh-my-zsh/plugins/z
 mkdir ~/.oh-my-zsh/plugins/z
-ln -s -f z.zsh ~/.oh-my-zsh/plugins/z/z.zsh
-ln -s -f zsh/.zshrc ~/.zshrc
-ln -s -f zsh/aliases.zsh ~/aliases.zsh
-
+ln -s -f $PWD"/z.zsh" ~/.oh-my-zsh/plugins/z/z.zsh
+ln -s -f $PWD"/zsh/aliases.zsh" ~/aliases.zsh
 
 ## install pure zsh theme
-wget --directory-prefix=zsh https://raw.githubusercontent.com/sindresorhus/pure/master/pure.zsh
-wget --directory-prefix=zsh https://raw.githubusercontent.com/sindresorhus/pure/master/async.zsh
+if [ ! -f $PWD"/zsh/pure.zsh" ]; then
+	wget --directory-prefix=zsh https://raw.githubusercontent.com/sindresorhus/pure/master/pure.zsh
+fi
+if [ ! -f $PWD"/zsh/async.zsh" ]; then
+	wget --directory-prefix=zsh https://raw.githubusercontent.com/sindresorhus/pure/master/async.zsh
+fi
+rm -rf ~/.oh-my-zsh/plugins/pure
 mkdir ~/.oh-my-zsh/plugins/pure
-ln -s -f pure.zsh ~/.oh-my-zsh/plugins/pure/pure.zsh
-ln -s -f pure.zsh ~/.oh-my-zsh/plugins/pure/async.zsh
-ln -s -f .zshrc ~/.zshrc
+ln -s -f $PWD"/zsh/pure.zsh" ~/.oh-my-zsh/plugins/pure/pure.zsh
+ln -s -f $PWD"/zsh/async.zsh" ~/.oh-my-zsh/plugins/pure/async.zsh
+ln -s -f $PWD"/zsh/.zshrc" ~/.zshrc
