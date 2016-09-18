@@ -63,6 +63,9 @@ mkdir ~/.oh-my-zsh/plugins/z
 ln -s -f $PWD"/z.zsh" ~/.oh-my-zsh/plugins/z/z.zsh
 ln -s -f $PWD"/zsh/aliases.zsh" ~/aliases.zsh
 
+## install syntax highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
 ## install pure zsh theme
 if [ ! -f $PWD"/zsh/pure.zsh" ]; then
 	wget --directory-prefix=zsh https://raw.githubusercontent.com/sindresorhus/pure/master/pure.zsh
