@@ -1,3 +1,6 @@
 [user]
 	name = Maxime Le Conte des Floris
   email = maxime.lcdf@gmail.com
+	signingkey = EF94DD95
+[commit]
+	gpgsign = true
