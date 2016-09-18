@@ -79,7 +79,10 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-# z install directory
- . /opt/z/z.sh
+# Link to z.zh
+ . ~/.oh-my-zsh/plugins/z/z.zsh
+
+ # Link to .aliases
+ . ~/.aliases
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
