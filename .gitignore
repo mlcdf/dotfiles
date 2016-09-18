@@ -1,1 +1,4 @@
 .tmp
+zsh/pure.zsh
+zsh/async.zsh
+zsh/z.sh
