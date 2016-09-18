@@ -11,7 +11,7 @@ clip: xclip -selection clipboard
 wget --directory-prefix=$tempDir https://github.com/atom/atom/releases/download/v1.9.5/atom-amd64.deb || sudo dpkg -i atom-amd64
 
 ## install atom plugins
-apm install file-icons atom-beautify atom-ternjs editorconfig language-babel linter minimap pigments atom-panda-syntax linter-xo advanced-open-file
+apm install file-icons advanced-open-file atom-beautify atom-panda-syntax atom-ternjs emmet editorconfig language-babel linter linter-xo linter-eslint linter-stylelint linter-pylama merge-conflicts minimap pigments react sort-lines terminal-plus
 
 # symlink atom config
 ls -s -f atom/config.cson ~/.atom/config.cson
