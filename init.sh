@@ -61,7 +61,7 @@ fi
 rm -rf ~/.oh-my-zsh/plugins/z
 mkdir ~/.oh-my-zsh/plugins/z
 ln -s -f $PWD"/z.zsh" ~/.oh-my-zsh/plugins/z/z.zsh
-ln -s -f $PWD"/zsh/aliases.zsh" ~/aliases.zsh
+ln -s -f $PWD"/zsh/.aliases.zsh" ~/.aliases.zsh
 
 ## install syntax highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
