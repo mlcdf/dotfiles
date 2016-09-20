@@ -1,23 +1,4 @@
 #!/usr/bin/env bash
-
-# # Symlink Atom configuration
-# rm ~/.atom/config.cson
-# ls -s -f atom/config.cson ~/.atom/config.cson
-
-
-# # Symlink git configurations
-# rm ~/.gitignore
-# ln -s -f $PWD"/git/gitignore" ~/.gitignore
-# rm ~/.gitconfig
-# ln -s -f $PWD"/git/gitconfig" ~/.gitconfig
-
-
-# # Symlink Zsh
-# rm ~/.zshrc
-# ln -s -f $PWD"/zsh/zshrc.symlink" ~/.zshrc
-
-
-#!/usr/bin/env bash
 #
 # bootstrap installs things.
 
