@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 # Install Aptitude packages
 sudo apt-get install bleachbit
@@ -72,22 +72,14 @@ if [ ! -f ~/.oh-my-zsh/plugins/z/z.zh ]; then
 fi
 
 # Install zsh-syntax-highlighting
-if [ -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
+if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 fi
 
 # Install pure.zsh theme
-if [ ! -f $PWD"/zsh/pure.zsh" ]; then
-	wget  -O ~/.oh-my-zsh/plugins/pure/pure.zsh https://raw.githubusercontent.com/sindresorhus/pure/master/pure.zsh
+if [ ! -f ~/.oh-my-zsh/custom/themes/pure.zsh-theme ]; then
+	wget  -O ~/.oh-my-zsh/custom/themes/pure.zsh-theme https://raw.githubusercontent.com/sindresorhus/pure/master/pure.zsh
 fi
-if [ ! -f $PWD"/zsh/async.zsh" ]; then
-	wget  -O ~/.oh-my-zsh/plugins/pure/async.zsh https://raw.githubusercontent.com/sindresorhus/pure/master/async.zsh
+if [ ! -f ~/.oh-my-zsh/custom/async.zsh ]; then
+	wget  -O ~/.oh-my-zsh/custom/async.zsh https://raw.githubusercontent.com/sindresorhus/pure/master/async.zsh
 fi
-
-if [ ! -f ~/.oh-my-zsh/plugins/pure/prompt_pure_setup ]; then
-	ln -s ~/.oh-my-zsh/plugins/pure/pure.zsh ~/.oh-my-zsh/plugins/pure/prompt_pure_setup
-fi
-
-if [ ! -f ~/.oh-my-zsh/plugins/pure/prompt_pure_setup ]; then
-	ln -s ~/.oh-my-zsh/plugins/pure/async.zsh ~/.oh-my-zsh/plugins/pure/async
-	fi
