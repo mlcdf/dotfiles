@@ -80,8 +80,4 @@ unset config_files
 autoload -U compinit
 compinit
 
-fpath=( "~/.oh-my-zsh/plugins/pure" $fpath )
-autoload -Uz promptinit; promptinit
-prompt pure
-
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
