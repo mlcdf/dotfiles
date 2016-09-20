@@ -17,7 +17,7 @@ chmod +x install.sh
 chmod +x boostrap.sh
 ```
 
-Read the two scripts, comments the part you don't want, and run them
+Read the two scripts, comment the part you don't want, and run them
 
 ```bash
 ./install
