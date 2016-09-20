@@ -1,5 +1,5 @@
 # dotfiles
-	Zsh, Oh-My-Zsh, Git, Node, Atom, ...
+> Zsh, Oh-My-Zsh, Git, Node, Atom, ...
 
 ## Install
 
