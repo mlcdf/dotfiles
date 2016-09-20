@@ -22,6 +22,7 @@
   core:
     disabledPackages: [
       "metrics"
+      "exception-reporting"
     ]
     themes: [
       "one-dark-ui"
@@ -37,3 +38,5 @@
     softWrapAtPreferredLineLength: true
     tabType: "soft"
   linter: {}
+  welcome:
+    showOnStartup: false
