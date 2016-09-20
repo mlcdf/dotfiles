@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/max/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
+export DOTFILES=$HOME/.dotfiles
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -61,6 +62,23 @@ source $ZSH/oh-my-zsh.sh
 
 # Link to z.zh
  . ~/.oh-my-zsh/plugins/z/z.sh
+
+# Load our dotfiles like ~/.bash_prompt, etc…
+#   ~/.extra can be used for settings you don’t want to commit,
+#   Use it to configure your PATH, thus it being first in line.
+
+# all of our zsh files
+typeset -U config_files
+config_files=($DOTFILES/**/*.zsh)
+
+for file in $config_files; do
+    source "$file"
+done
+unset config_files
+
+# Initialize autocomplete here, otherwise functions won't be loaded
+autoload -U compinit
+compinit
 
 rm ~/.oh-my-zsh/plugins/pure/prompt_pure_setup
 ln -s ~/.oh-my-zsh/plugins/pure/pure.zsh ~/.oh-my-zsh/plugins/pure/prompt_pure_setup
