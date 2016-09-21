@@ -1,0 +1,37 @@
+! Fonts
+xterm*faceName: Roboto Mono
+xterm*faceSize: 12
+
+! Every shell is a login shell by default (for inclusion of all necessary environment variables)
+xterm*loginshell: true
+
+! I like a LOT of scrollback...
+xterm*savelines: 16384
+
+! Snazzy Xresources palette
+xterm*.foreground: #eff0eb
+xterm*.background: #282A36
+! Black cursor
+xterm*.color0:     #000000
+xterm*.color8:     #4D4D4D
+! Red
+xterm*.color1:     #ff5c57
+xterm*.color9:     #ff5c57
+! Green
+xterm*.color2:     #5af78e
+xterm*.color10:    #5af78e
+! Yellow
+xterm*.color3:     #f3f99d
+xterm*.color11:    #f3f99d
+! Blue
+xterm*.color4:     #57c7ff
+xterm*.color12:    #57c7ff
+! Magenta
+xterm*.color5:     #ff6ac1
+xterm*.color13:    #ff6ac1
+! Cyan
+xterm*.color6:     #9aedfe
+xterm*.color14:    #9aedfe
+! White
+xterm*.color7:     #f1f1f0
+xterm*.color15: #f1f1f0
