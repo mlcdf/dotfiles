@@ -44,8 +44,11 @@ apm install terminal-plus
 wget -qO- --directory-prefix=".tmp" https://raw.githubusercontent.com/creationix/nvm/v0.31.7/install.sh | bash
 
 # Install node v4 & v6
-nvm install 4
+nvm install 4 # it's the LTS version
 nvm install 6
+
+# Use Node 6.5 by default
+nvm alias default 6.5
 
 # Install global npm packages
 sudo npm i -g alex
