@@ -1,0 +1,7 @@
+Host mlcdf-lemp
+	Hostname 139.59.135.147
+	User root
+
+Host info-ssh1
+	Hostname info-ssh1.iut.u-bordeaux.fr
+	User mleconte
