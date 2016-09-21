@@ -3,6 +3,11 @@ function mdk() {
 	mkdir -p "$@" && cd "$@"
 }
 
+# Cd into a directory and list this directory contents
+function cdl() {
+	cd "$@" && ls
+}
+
 # Find shorthand
 function f() {
 	find . -name "$1" 2>&1 | grep -v 'Permission denied'
