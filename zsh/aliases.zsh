@@ -4,7 +4,10 @@ alias sudo="sudo "
 alias mkdir="mkdir -pv"
 alias dl="cd ~/Downloads"
 
-# Launch Firefox
+# Git undo
+alias gu="git reset --soft HEAD~"
+
+# Launch Fi
 # See https://developer.mozilla.org/en-US/docs/Mozilla/Command_Line_Options
 alias ff=firefox
 
