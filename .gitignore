@@ -6,3 +6,7 @@ atom.symlink/compile-cache/
 atom.symlink/packages
 atom.symlink/storage
 atom.symlink/themes
+atom.symlink/nohup.out
+
+ssh.symlink/known_hosts
+ssh.symlink/id*
