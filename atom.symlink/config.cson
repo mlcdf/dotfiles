@@ -1,4 +1,5 @@
 "*":
+  "atom-autocomplete-php": {}
   "atom-beautify":
     css:
       beautify_on_save: true
@@ -24,6 +25,7 @@
       "metrics"
       "exception-reporting"
     ]
+    projectHome: "~/code"
     themes: [
       "one-dark-ui"
       "atom-panda-syntax"
