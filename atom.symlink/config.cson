@@ -8,6 +8,7 @@
       no_lead_zero: true
     general:
       analytics: false
+      beautifyEntireFileOnSave: false
     html:
       end_with_newline: true
       indent_size: 2
