@@ -8,7 +8,7 @@ xterm*loginshell: true
 ! I like a LOT of scrollback...
 xterm*savelines: 16384
 
-! Snazzy Xresources palette
+! Snazzy Xresources palette (based on https://github.com/sindresorhus/hyperterm-snazzy)
 xterm*.foreground: #eff0eb
 xterm*.background: #282A36
 ! Black cursor
@@ -34,4 +34,4 @@ xterm*.color6:     #9aedfe
 xterm*.color14:    #9aedfe
 ! White
 xterm*.color7:     #f1f1f0
-xterm*.color15: #f1f1f0
+xterm*.color15: 	 #f1f1f0
