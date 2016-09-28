@@ -5,7 +5,6 @@ sudo apt-get install bleachbit
 sudo apt-get install evolution
 sudo apt-get install firefox
 sudo apt-get install git
-sudo apt-get install guake
 sudo apt-get install python-virtualenv
 sudo apt-get install python3
 sudo apt-get install snap
@@ -24,7 +23,6 @@ apm install atom-beautify
 apm install atom-panda-syntax
 apm install atom-ternjs
 apm install editorconfig
-apm install emmet
 apm install file-icons
 apm install language-babel
 apm install linter
@@ -37,7 +35,6 @@ apm install minimap
 apm install pigments
 apm install react
 apm install sort-lines
-apm install terminal-plus
 
 
 # Download & install nvm
@@ -54,10 +51,10 @@ nvm alias default 6.5
 sudo npm i -g alex
 sudo npm i -g http-server
 sudo npm i -g np
-sudo npm i -g public-ip
 sudo npm i -g opaline-cli
-sudo npm i -g torrent
+sudo npm i -g public-ip
 sudo npm i -g spoof
+sudo npm i -g torrent
 sudo npm i -g yo
 
 
