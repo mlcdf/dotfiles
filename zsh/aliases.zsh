@@ -34,6 +34,9 @@ alias df="df -Tha --total"
 # Search through history
 alias histg="history | grep"
 
+# Clean /boot
+alias clean-boot="sudo dpkg --get-selections|grep 'linux-image*'|awk '{print $1}'|egrep -v \"linux-image-$(uname -r)|linux-image-generic\" |while read n;do sudo apt-get -y remove $n;done"
+
 # Shutdown the computer
 alias shutdown='sudo shutdown -h now'
 
