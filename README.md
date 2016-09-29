@@ -28,6 +28,6 @@ chmod +x boostrap.sh
 Read the two scripts, comment the part you don't want, and run them
 
 ```bash
-./install
-./boostrap
+./install.sh
+./boostrap.sh
 ```
