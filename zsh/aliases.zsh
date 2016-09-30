@@ -28,6 +28,9 @@ alias ff=firefox
 # Open Firefox in permanent private browsing mode
 alias ffp=firefox -private-window
 
+# Open Firefox Developer Edition
+alias ffd=firefox-dev
+
 # Display the amount of available disk space for file systems
 alias df="df -Tha --total"
 
