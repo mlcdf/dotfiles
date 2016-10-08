@@ -14,6 +14,18 @@ sudo apt-get install xclip
 sudo apt-get install zsh
 
 
+# Install Arc-Theme
+sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_16.04/ /' > /etc/apt/sources.list.d/arc-theme.list"
+sudo apt-get update
+sudo apt-get install arc-theme
+
+
+# Install Numix Circle
+sudo add-apt-repository ppa:numix/ppa
+sudo apt-get update
+sudo apt-get install numix-icon-theme-circle
+
+
 # Download and install Atom
 wget --directory-prefix="~/Downloads" https://github.com/atom/atom/releases/download/v1.9.5/atom-amd64.deb || sudo dpkg -i atom-amd64
 
