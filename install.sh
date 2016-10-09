@@ -72,7 +72,10 @@ sudo npm i -g yo
 
 # Install rvm, Ruby & Rails
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-get https://get.rvm.io | bash -s stable --ruby --rails
+get https://get.rvm.io | bash -s stable --ruby=2.3.1 --rails
+
+# Load rvm
+source ~/.rvm/scripts/rvm
 
 
 # Set Zsh as default shell
