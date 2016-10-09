@@ -60,14 +60,14 @@ nvm install 6.7 # Current
 nvm alias default 6.7
 
 # Install global npm packages
-sudo npm i -g alex
-sudo npm i -g http-server
-sudo npm i -g np
-sudo npm i -g opaline-cli
-sudo npm i -g public-ip
-sudo npm i -g spoof
-sudo npm i -g torrent
-sudo npm i -g yo
+npm i -g alex
+npm i -g http-server
+npm i -g np
+npm i -g opaline-cli
+npm i -g public-ip
+npm i -g spoof
+npm i -g torrent
+npm i -g yo
 
 
 # Install rvm, Ruby & Rails
