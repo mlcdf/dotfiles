@@ -50,7 +50,14 @@ ZSH_THEME="pure"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git npm node git-extras nvm python ubuntu zsh-syntax-highlighting)
+plugins=(
+    cp # use cpv to copy files using rsync
+    git # tons of aliases
+    gulp # tasks auto-completions
+    sublime # some aliases
+    ubuntu # tons of aliases
+    zsh-syntax-highlighting # syntax highlighting in the terminal
+)
 
 source $ZSH/oh-my-zsh.sh
 
