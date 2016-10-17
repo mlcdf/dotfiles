@@ -54,10 +54,10 @@ wget -qO- --directory-prefix=".tmp" https://raw.githubusercontent.com/creationix
 
 # Install node v4 & v6
 nvm install 4.6 # LTS
-nvm install 6.7 # Current
+nvm install 6.8 # Current
 
 # Use Node 6.5 by default
-nvm alias default 6.7
+nvm alias default 6.8
 
 # Install global npm packages
 npm i -g alex
