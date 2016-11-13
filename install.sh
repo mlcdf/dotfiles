@@ -1,9 +1,27 @@
 #!/usr/bin/env bash
 
-# Aptitude packages
+### Node.js ###
 
-# for Elementary OS and  Ubuntu <= 16.04
+# Download & install nvm
+wget -qO- --directory-prefix=".tmp" https://raw.githubusercontent.com/creationix/nvm/v0.31.7/install.sh | bash
+
+# Install node LTS
+nvm install 6.9
+
+# Use Node 6.9 by default
+nvm alias default 6.9
+
+
+### Aptitude packages ###
+
+# Add arc-theme repo for Elementary OS and Ubuntu <= 16.04
 sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_16.04/ /' > /etc/apt/sources.list.d/arc-theme.list"
+wget http://download.opensuse.org/repositories/home:Horst3180/xUbuntu_16.04/Release.key
+sudo apt-key add - < Release.key
+
+# Add yarn repo
+sudo apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg
+echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
 sudo add-apt-repository ppa:numix/ppa
 sudo add-apt-repository ppa:ubuntu-desktop/ubuntu-make
@@ -19,10 +37,23 @@ sudo apt-get install zsh
 sudo apt-get install arc-theme
 sudo apt-get install numix-icon-theme-circle
 sudo apt-get install ubuntu-make
+sudo apt-get install yarn
 
+### npm, cook & apm package ###
 
-# Download and install Atom
-curl -sSL --directory-prefix="~/Downloads" https://github.com/atom/atom/releases/download/v1.12.1/atom-amd64.deb || sudo dpkg -i atom-amd64
+# Install global npm packages
+yarn global add http-server
+yarn global add np
+yarn global add opaline-cli
+yarn global add yo
+
+# Install cook-pm (see https://github.com/mlcdf/cook)
+yarn global add cook-pm
+
+cook sublime-text
+cook vivaldi
+cook hyper
+cook atom
 
 ## Install Atom plugins
 apm install atom-beautify
@@ -35,30 +66,12 @@ apm install linter-eslint
 apm install minimap
 
 
-# Download & install nvm
-wget -qO- --directory-prefix=".tmp" https://raw.githubusercontent.com/creationix/nvm/v0.31.7/install.sh | bash
-
-# Install node LTS
-nvm install 6.9
-
-# Use Node 6.9 by default
-nvm alias default 6.9
-
-# Install global npm packages
-# npm i -g alex
-npm i -g http-server
-npm i -g np
-npm i -g opaline-cli
-# npm i -g public-ip
-# npm i -g spoof
-# npm i -g torrent
-npm i -g yo
-
-
 # Install rvm, Ruby & Rails
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 curl -sSL https://get.rvm.io | bash -s stable --ruby=2.3.1 --rails -- --ignore-dotfiles
 
+
+### Shell stuff (zsh, z, oh-my-zsh, ...) ###
 
 # Set Zsh as default shell
 chsh -s $(which zsh)
