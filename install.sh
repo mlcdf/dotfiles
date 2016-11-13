@@ -1,28 +1,24 @@
 #!/usr/bin/env bash
 
-# Install Aptitude packages
-# sudo apt-get install bleachbit
+# Aptitude packages
+
+# for Elementary OS and  Ubuntu <= 16.04
+sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_16.04/ /' > /etc/apt/sources.list.d/arc-theme.list"
+
+sudo add-apt-repository ppa:numix/ppa
+sudo add-apt-repository ppa:ubuntu-desktop/ubuntu-make
+
+sudo apt-get update
+
 sudo apt-get install evolution
-# sudo apt-get install firefox
-# sudo apt-get install git
-sudo apt-get install python-virtualenv
 sudo apt-get install python3
 sudo apt-get install vim
 sudo apt-get install vlc
 sudo apt-get install xclip
 sudo apt-get install zsh
-
-
-# Install Arc-Theme
-sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_16.04/ /' > /etc/apt/sources.list.d/arc-theme.list"
-sudo apt-get update
 sudo apt-get install arc-theme
-
-
-# Install Numix Circle
-sudo add-apt-repository ppa:numix/ppa
-sudo apt-get update
 sudo apt-get install numix-icon-theme-circle
+sudo apt-get install ubuntu-make
 
 
 # Download and install Atom
@@ -54,8 +50,8 @@ npm i -g http-server
 npm i -g np
 npm i -g opaline-cli
 # npm i -g public-ip
-# npm i -g spoof
-# npm i -g torrent
+# npm i -g spoof
+# npm i -g torrent
 npm i -g yo
 
 
@@ -69,7 +65,7 @@ chsh -s $(which zsh)
 
 # Install z.sh
 if [ ! -f ~/.oh-my-zsh/plugins/z/z.zh ]; then
-	curl -sSLo ~/.oh-my-zsh/plugins/z/z.sh https://raw.githubusercontent.com/rupa/z/master/z.sh
+  curl -sSLo ~/.oh-my-zsh/plugins/z/z.sh https://raw.githubusercontent.com/rupa/z/master/z.sh
 fi
 
 # Install oh-my-zsh
@@ -77,13 +73,13 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 # Install zsh-syntax-highlighting
 if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 fi
 
 # Install pure.zsh theme
 if [ ! -f ~/.oh-my-zsh/custom/themes/pure.zsh-theme ]; then
-	curl -sSLo ~/.oh-my-zsh/custom/themes/pure.zsh-theme https://raw.githubusercontent.com/sindresorhus/pure/master/pure.zsh
+  curl -sSLo ~/.oh-my-zsh/custom/themes/pure.zsh-theme https://raw.githubusercontent.com/sindresorhus/pure/master/pure.zsh
 fi
 if [ ! -f ~/.oh-my-zsh/custom/async.zsh ]; then
-	curl -sSLo ~/.oh-my-zsh/custom/async.zsh https://raw.githubusercontent.com/sindresorhus/pure/master/async.zsh
+  curl -sSLo ~/.oh-my-zsh/custom/async.zsh https://raw.githubusercontent.com/sindresorhus/pure/master/async.zsh
 fi
