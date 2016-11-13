@@ -27,10 +27,7 @@
       "exception-reporting"
     ]
     projectHome: "~/code"
-    themes: [
-      "one-dark-ui"
-      "atom-panda-syntax"
-    ]
+    telemetryConsent: "no"
   editor:
     fontFamily: "Menslo, Courrier, Monaco, Roboto Mono,"
     fontSize: 16
