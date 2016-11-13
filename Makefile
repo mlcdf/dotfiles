@@ -1,7 +1,6 @@
 .PHONY: all install bootstrap
 
-all:
-	install bootstrap
+all: install bootstrap
 
 install:
 	./install.sh
