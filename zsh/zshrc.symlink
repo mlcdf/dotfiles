@@ -53,22 +53,17 @@ ZSH_THEME="pure"
 plugins=(
     cp # use cpv to copy files using rsync
     git # tons of aliases
-    gulp # tasks auto-completions
+    gulp # task auto-completions
     sublime # some aliases
     ubuntu # tons of aliases
     zsh-syntax-highlighting # syntax highlighting in the terminal
 )
-
-source $ZSH/oh-my-zsh.sh
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Link to z.zh
- . ~/.oh-my-zsh/plugins/z/z.sh
 
 # Load our dotfiles like ~/.bash_prompt, etc…
 #   ~/.extra can be used for settings you don’t want to commit,
@@ -83,8 +78,12 @@ for file in $config_files; do
 done
 unset config_files
 
+# Load nvm, rvm, z & oh-my-zsh
+source $ZSH/oh-my-zsh.sh
+source ~/.rvm/scripts/rvm
+source ~/.nvm/nvm.sh
+source ~/.oh-my-zsh/plugins/z/z.sh
+
 # Initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit
 compinit
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
