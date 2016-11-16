@@ -10,3 +10,5 @@ atom.symlink/nohup.out
 
 ssh.symlink/known_hosts
 ssh.symlink/id*
+
+*.log
