@@ -5,12 +5,13 @@
 # Download & install nvm
 wget -qO- --directory-prefix=".tmp" https://raw.githubusercontent.com/creationix/nvm/v0.31.7/install.sh | bash
 
-# Install node LTS
+# Install Node.js LTS
 nvm install 6.9
 
-# Use Node 6.9 by default
+# Use Node.js 6.9 by default
 nvm alias default 6.9
 
+npm config set sign-git-tag true
 
 ### Aptitude packages ###
 
