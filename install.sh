@@ -57,7 +57,6 @@ cook hyper
 cook atom
 
 ## Install Atom plugins
-apm install atom-beautify
 apm install atom-ternjs
 apm install editorconfig
 apm install file-icons
@@ -69,7 +68,7 @@ apm install minimap
 
 # Install rvm, Ruby & Rails
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-curl -sSL https://get.rvm.io | bash -s stable --ruby=2.3.1 --rails -- --ignore-dotfiles
+curl -sSL https://get.rvm.io | bash -s stable --ruby=2.3.1 --rails --ignore-dotfiles
 
 
 ### Shell stuff (zsh, z, oh-my-zsh, ...) ###
