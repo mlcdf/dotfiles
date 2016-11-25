@@ -26,6 +26,7 @@ echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources
 
 sudo add-apt-repository ppa:numix/ppa
 sudo add-apt-repository ppa:ubuntu-desktop/ubuntu-make
+sudo add-apt-repository ppa:dawidd0811/neofetch
 
 sudo apt-get update
 
@@ -39,6 +40,7 @@ sudo apt-get install arc-theme
 sudo apt-get install numix-icon-theme-circle
 sudo apt-get install ubuntu-make
 sudo apt-get install yarn
+sudo apt-get install neofetch
 
 ### npm, cook & apm package ###
 
