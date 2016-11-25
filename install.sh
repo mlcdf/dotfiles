@@ -32,6 +32,7 @@ sudo apt-get update
 
 sudo apt-get install evolution
 sudo apt-get install python3
+sudo apt-get install python3-pip
 sudo apt-get install vim
 sudo apt-get install vlc
 sudo apt-get install xclip
