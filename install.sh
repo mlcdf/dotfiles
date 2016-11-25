@@ -45,7 +45,7 @@ sudo apt-get install neofetch
 ### npm, cook & apm package ###
 
 # Install global npm packages
-yarn global add http-server
+yarn global add live-server
 yarn global add np
 yarn global add opaline-cli
 yarn global add yo
