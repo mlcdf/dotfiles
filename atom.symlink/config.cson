@@ -21,13 +21,26 @@
       convert_quotes: "single"
       indent_size: 2
       no_lead_zero: true
+  "autocomplete-python":
+    pythonPaths: "/usr/bin/python3"
+    useSnippets: "required"
   core:
     disabledPackages: [
       "metrics"
       "exception-reporting"
     ]
-    projectHome: "~/code"
+    openEmptyEditorOnStart: false
+    projectHome: "~/Code"
     telemetryConsent: "no"
+    themes: [
+      "one-dark-ui"
+      "duotone-dark-syntax"
+    ]
+    warnOnLargeFileLimit: 10
+  "duotone-dark-syntax":
+    color:
+      duo: "#80eeff"
+      uno: "#ffbd76"
   editor:
     fontFamily: "Menslo, Courrier, Monaco, Roboto Mono,"
     fontSize: 16
@@ -36,7 +49,13 @@
     showInvisibles: true
     softWrap: true
     softWrapAtPreferredLineLength: true
-    tabType: "soft"
   linter: {}
+  "linter-eslint":
+    globalNodePath: "/home/max/.nvm/versions/node/v6.9.1"
+  "linter-flake8": {}
+  "linter-stylelint":
+    useStandard: true
+  "tree-view":
+    hideIgnoredNames: true
   welcome:
     showOnStartup: false

@@ -60,13 +60,16 @@ cook hyper
 cook atom
 
 ## Install Atom plugins
-apm install atom-ternjs
+apm install minimap
 apm install editorconfig
 apm install file-icons
 apm install language-babel
 apm install linter
 apm install linter-eslint
-apm install minimap
+apm install linter-stylelint
+apm install linter flake8
+apm install atom-ternjs
+apm install autocomplete-python
 
 
 # Install rvm, Ruby & Rails
