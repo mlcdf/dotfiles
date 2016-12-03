@@ -80,7 +80,7 @@ curl -sSL https://get.rvm.io | bash -s stable --ruby=2.3.1 --rails --ignore-dotf
 ### Shell stuff (zsh, z, oh-my-zsh, ...) ###
 
 # Set Zsh as default shell
-chsh -s $(which zsh)
+chsh -s "$(which zsh)"
 
 # Install z.sh
 if [ ! -f ~/.oh-my-zsh/plugins/z/z.zh ]; then
