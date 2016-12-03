@@ -1,6 +1,6 @@
 # Create a directory and cd into it
 function mdk() {
-	mkdir -p "$@" && cd "$@"
+	mkdir -p "$@" && cd "$@" || exit
 }
 
 # Cd into a directory and list this directory contents
@@ -16,7 +16,7 @@ function f() {
 # Get gzipped size
 function gz() {
 	echo "orig size    (bytes): "
-	cat "$1" | wc -c
+	wc -c < "$1"
 	echo "gzipped size (bytes): "
 	gzip -c "$1" | wc -c
 }
