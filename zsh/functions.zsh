@@ -20,3 +20,12 @@ function gz() {
 	echo "gzipped size (bytes): "
 	gzip -c "$1" | wc -c
 }
+
+# Manage the clipboard via xsel
+function cb() {
+  if [ -z "$1" ]; then
+    xsel --clipboard --output
+  else
+    echo "$1" | xsel --clipboard --input
+  fi
+}
