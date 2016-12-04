@@ -73,6 +73,7 @@ shell: zsh z oh-my-zsh zsh-syntax-highlighting pure-theme
 
 base-package:
 	apt-get install --yes \
+		xsel \
 		evolution \
 		vlc \
 		vim \
