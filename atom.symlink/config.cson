@@ -1,61 +1,33 @@
 "*":
-  "atom-autocomplete-php": {}
-  "atom-beautify":
-    css:
-      beautify_on_save: true
-      end_with_newline: true
-      indent_size: 2
-      no_lead_zero: true
-    general:
-      analytics: false
-      beautifyEntireFileOnSave: false
-    html:
-      end_with_newline: true
-      indent_size: 2
-    js:
-      end_with_newline: true
-    json:
-      end_with_newline: true
-    scss:
-      beautify_on_save: true
-      convert_quotes: "single"
-      indent_size: 2
-      no_lead_zero: true
-  "autocomplete-python":
-    pythonPaths: "/usr/bin/python3"
-    useSnippets: "required"
+  "atom-ternjs":
+    useSnippets: true
   core:
     disabledPackages: [
       "metrics"
       "exception-reporting"
+      "whitespace"
     ]
-    openEmptyEditorOnStart: false
     projectHome: "~/Code"
     telemetryConsent: "no"
     themes: [
       "one-dark-ui"
-      "duotone-dark-syntax"
+      "gloom"
     ]
-    warnOnLargeFileLimit: 10
-  "duotone-dark-syntax":
-    color:
-      duo: "#80eeff"
-      uno: "#ffbd76"
   editor:
-    fontFamily: "Menslo, Courrier, Monaco, Roboto Mono,"
-    fontSize: 16
-    preferredLineLength: 120
+    fontFamily: "Inconsolata, Fira, Cousine, Ubuntu Mono"
+    fontSize: 24
+    preferredLineLength: 100
     showIndentGuide: true
     showInvisibles: true
     softWrap: true
     softWrapAtPreferredLineLength: true
+  "git-plus":
+    general:
+      analytics: false
   linter: {}
   "linter-eslint":
-    globalNodePath: "/home/max/.nvm/versions/node/v6.9.1"
-  "linter-flake8": {}
-  "linter-stylelint":
-    useStandard: true
-  "tree-view":
-    hideIgnoredNames: true
-  welcome:
-    showOnStartup: false
+    fixOnSave: true
+    globalNodePath: "/home/max/.nvm/versions/node/v6.9.2"
+    useGlobalEslint: true
+  "linter-xo":
+    fixOnSave: true
