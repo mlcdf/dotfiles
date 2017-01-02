@@ -103,6 +103,7 @@ atom:
 		file-icons \
 		language-babel \
 		linter \
+		linter-xo \
 		linter-eslint \
 		linter-stylelint \
 		linter-pylint \
