@@ -1,4 +1,7 @@
 # dotfiles
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f4d773f343724d6983675cdfec373d99)](https://www.codacy.com/app/mlcdf/dotfiles?utm_source=github.com&utm_medium=referral&utm_content=mlcdf/dotfiles&utm_campaign=badger)
+
 > Zsh, Oh-My-Zsh, Git, Node, Atom, ...
 
 Based on [Zach Holman](https://github.com/holman)'s [dotfiles](https://github.com/holman/dotfiles).
