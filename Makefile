@@ -77,13 +77,16 @@ pure-theme:
 shell: zsh z oh-my-zsh zsh-syntax-highlighting pure-theme
 
 base-package:
+	add-apt-repository ppa:ubuntu-desktop/ubuntu-make
+
 	apt-get install --yes \
 		xsel \
 		evolution \
 		vlc \
 		vim \
 		deluge \
-		dropbox
+		dropbox \
+		ubuntu-make
 
 	yarn global add cook-pm
 	cook atom
