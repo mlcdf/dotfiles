@@ -10,7 +10,7 @@ alias mkdir="mkdir -pv"
 alias _dl="cd ~/Downloads"
 
 # Shortcut to code dir
-alias _code="cd ~/code"
+alias _code="cd ~/Code"
 
 # Shortcut to .dotfiles dir
 alias _dot="cd ~/.dotfiles"
