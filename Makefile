@@ -18,7 +18,7 @@ nodejs:
 	wget -qO- --directory-prefix=".tmp" https://raw.githubusercontent.com/creationix/nvm/v0.31.7/install.sh | bash
 
 	nvm install 6.9 # LTS
-	nvm install 7.2 # Current
+	nvm install 7.4 # Current
 	nvm alias default 6.9
 
 	npm config set sign-git-tag true
