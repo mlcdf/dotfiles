@@ -6,7 +6,8 @@ export LC_ALL=en_US.UTF-8
 
 export MANPATH="/usr/local/man:$MANPATH"
 
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+export PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$PATH:/home/max/.rvm/gems/ruby-2.3.0/bin"
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 
