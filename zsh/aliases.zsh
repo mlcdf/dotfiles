@@ -1,24 +1,34 @@
+#!/bin/sh
+
 # Enable aliases to be sudo'ed
 alias sudo="sudo "
+
+# Open a file
+alias open='xdg-open'
 
 # Create the directory
 # -p  create all directories leading up to the given directory
 # -v  display each directory that mkdir creates.
 alias mkdir="mkdir -pv"
 
-# Shortcut to Downloads dir
+# copy file interactive
+alias cp='cp -i'
+
+# move file interactive
+alias mv='mv -i'
+
+# untar
+alias untar='tar xvf'
+
+# Shortcuts
 alias _dl="cd ~/Downloads"
-
-# Shortcut to code dir
 alias _code="cd ~/Code"
-
-# Shortcut to .dotfiles dir
 alias _dot="cd ~/.dotfiles"
 
-# Git undo
+# git undo
 alias gu="git reset --soft HEAD~"
 
-# Run docker
+# run docker
 alias docker='sudo -g docker docker'
 
 # Launch Firefox
