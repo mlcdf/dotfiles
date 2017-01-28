@@ -1,6 +1,19 @@
-[user]
-	name = Maxime Le Conte des Floris
-  email = maxime.lcdf@gmail.com
-	signingkey = EF94DD95
+
 [commit]
 	gpgsign = true
+
+[github]
+	user = mlcdf
+
+[url "git@github.com:"]
+	pushInsteadOf = https://github.com/
+	pushInsteadOf = "github:"
+	pushInsteadOf = "git://github.com/"
+
+[url "git://github.com/"]
+	insteadOf = "github:"
+
+[user]
+	name = Maxime Le Conte des Floris
+	email = maxime.lcdf@gmail.com
+	signingkey = EF94DD95
