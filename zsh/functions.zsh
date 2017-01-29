@@ -25,9 +25,9 @@ gz() {
 
 # Manage the clipboard via xsel
 cb() {
-  if [ -z "$1" ]; then
-    xsel --clipboard --output
-  else
-    echo "$1" | xsel --clipboard --input
-  fi
+	if [ -z "$1" ]; then
+		xsel --clipboard --output
+	else
+		echo "$1" | xsel --clipboard --input
+	fi
 }
