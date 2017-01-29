@@ -25,9 +25,6 @@ alias _dl="cd ~/Downloads"
 alias _code="cd ~/Code"
 alias _dot="cd ~/.dotfiles"
 
-# git undo
-alias gu="git reset --soft HEAD~"
-
 # run docker
 alias docker='sudo -g docker docker'
 

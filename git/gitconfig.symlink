@@ -1,13 +1,23 @@
-
+[alias]
+  gu = git reset --soft HEAD~
 [commit]
 	gpgsign = true
+
+	[core]
+	excludesfile = ~/.gitignore
+	attributesfile = ~/.gitattributes
 
 [github]
 	user = mlcdf
 
-[push]
-  default = simple
+# correct typos
+[help]
+  autocorrect = 1
 
+[push]
+	default = simple
+
+# rewrites of repo paths
 [url "git@github.com:"]
 	pushInsteadOf = https://github.com/
 	pushInsteadOf = "github:"

@@ -1,3 +1,5 @@
+node_modules
+
 # Log files
 .npm-debug.log
 
@@ -12,3 +14,5 @@ Thumbs.db
 # Compiled files
 *.pyc
 *.o
+
+# no thx
