@@ -1,3 +1,6 @@
+! xTerm config
+
+
 ! Fonts
 xterm*faceName: Roboto Mono
 xterm*faceSize: 12

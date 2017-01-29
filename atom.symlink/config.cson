@@ -6,6 +6,7 @@
       "metrics"
       "exception-reporting"
       "whitespace"
+      "linter-eslint"
     ]
     projectHome: "~/Code"
     telemetryConsent: "no"
@@ -24,6 +25,7 @@
   "git-plus":
     general:
       analytics: false
+      splitPane: "Right"
   linter: {}
   "linter-eslint":
     fixOnSave: true
