@@ -1,14 +1,16 @@
-atom.symlink/.apm
-atom.symlink/.node-gyp
-atom.symlink/.storage
-atom.symlink/blob-store
-atom.symlink/compile-cache/
-atom.symlink/packages
-atom.symlink/storage
-atom.symlink/themes
-atom.symlink/nohup.out
+node_modules
 
-ssh.symlink/known_hosts
-ssh.symlink/id*
-
+# Log files
 *.log
+
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# Compiled files
+*.pyc
+*.o

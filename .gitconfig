@@ -1,9 +1,16 @@
 [alias]
   gu = git reset --soft HEAD~
+
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+  ui = true
+
 [commit]
 	gpgsign = true
 
-	[core]
+[core]
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
 
