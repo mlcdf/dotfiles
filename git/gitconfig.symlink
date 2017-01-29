@@ -5,6 +5,9 @@
 [github]
 	user = mlcdf
 
+[push]
+  default = simple
+
 [url "git@github.com:"]
 	pushInsteadOf = https://github.com/
 	pushInsteadOf = "github:"
