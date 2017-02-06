@@ -14,7 +14,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 
 export GOPATH="$HOME/Code"
-export GOROOT="/usr/local/go"
+export GOROOT="$HOME/go"
 export PATH="$PATH:$GOROOT/bin"
 
 export RUST_SRC_PATH="$HOME/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
