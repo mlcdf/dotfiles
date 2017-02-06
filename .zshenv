@@ -13,7 +13,7 @@ export PATH="$PATH:$HOME/.rvm/gems/ruby-2.3.0/bin"
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 
-export GOPATH="$HOME/Code/go-playground"
+export GOPATH="$HOME/Code"
 export GOROOT="/usr/local/go"
 export PATH="$PATH:$GOROOT/bin"
 
