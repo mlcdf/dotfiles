@@ -12,6 +12,7 @@ export PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="$PATH:$HOME/.rvm/gems/ruby-2.3.0/bin"
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin/"
 
 export GOPATH="$HOME/Code/go"
 export GOROOT="$HOME/go"
