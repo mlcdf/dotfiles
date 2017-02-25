@@ -28,6 +28,9 @@ alias _dot="cd ~/.dotfiles"
 # run docker
 alias docker='sudo -g docker docker'
 
+# serve files relative to the current directory
+alias serve='python3 -m http.server'
+
 # Launch Firefox
 # See https://developer.mozilla.org/en-US/docs/Mozilla/Command_Line_Options
 alias ff=firefox
