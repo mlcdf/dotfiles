@@ -1,5 +1,5 @@
 [alias]
-  gu = git reset --soft HEAD~
+  undo = reset --soft HEAD~
 
 [color]
   branch = auto
