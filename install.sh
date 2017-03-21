@@ -1,105 +1,79 @@
-#!/usr/bin/env make
+#!/bin/bash
 
-default:	\
-	nodejs yarnpkg \
-	python \
-	shell
+set -o nounset
+set -o errexit
 
-lint:
-	shellcheck -s bash \
-		zsh/*.zsh \
-		bootstrap.sh \
-		Makefile
+base() {
+	add-apt-repository ppa:ubuntu-desktop/ubuntu-make
 
-upgrade:
-	apt-get update && apt-get --yes upgrade
+	apt-get update
+	apt-get --yes upgrade
 
-nodejs:
+	apt-get install --yes \
+		curl \
+		git \
+		gnupg2 \
+		gzip \
+		make \
+		tree \
+		ubuntu-make \
+		unzip \
+		vim \
+		vlc \
+		xsel \
+		zip \
+		--no-install-recommends
+
+		apt-get autoremove
+		apt-get autoclean
+		apt-get clean
+
+		yarn global add cook-pm
+		cook atom
+		cook hyper
+		cook keeweb
+}
+
+install_graphics() {
+	apt-get install --yes \
+		xorg \
+		xserver-xorg \
+		xserver-xorg-video-intel \
+		--no-install-recommends
+}
+
+nodejs() {
 	wget -qO- --directory-prefix=".tmp" https://raw.githubusercontent.com/creationix/nvm/v0.31.7/install.sh | bash
 
-	nvm install 6.9 # LTS
-	nvm install 7.4 # Current
-	nvm alias default 6.9
+	nvm install --lts=Boron (6.x.x.)
+	nvm install 7.7 # Current
+	nvm alias default 7.7
 
 	npm config set sign-git-tag true
+}
 
-yarnpkg:
+yarnpkg() {
 	apt-key adv --keyserver pgp.mit.edu --recv D101F7899D41F3C3
 	echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-	apt-get update && apt-get install yarn --yes
+	apt-get update && apt-get install --yes yarn
+}
 
-python:
+python() {
 	apt-get install --yes \
 		python3{,-dev} \
 		python3-venv \
 		python{,3}-pip \
 		python{,3}-setuptools \
 		pip install wheel \
-		ipython \
+		ipython
+}
 
-ruby:
-	# Install rvm, Ruby & Rails
+ruby() {
 	gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 	curl -sSL https://get.rvm.io | bash -s stable --ruby=2.3.1 --rails --ignore-dotfiles
+}
 
-rust:
-	curl -sSf https://static.rust-lang.org/rustup.sh | sh
-	cargo install racer
-
-
-zsh:
-	sudo apt-get install zsh --yes
-	chsh -s "$(which zsh)"
-
-z:
-	if ! type z ; then \
-		curl -sSLo ~/.oh-my-zsh/plugins/z/z.sh https://raw.githubusercontent.com/rupa/z/master/z.sh \
-	; fi
-
-oh-my-zsh:
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-zsh-syntax-highlighting:
-	if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then \
-		git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
-		"${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" \
-	; fi
-
-pure-theme:
-	if [ ! -f ~/.oh-my-zsh/custom/themes/pure.zsh-theme ]; then \
-		curl -sSLo ~/.oh-my-zsh/custom/themes/pure.zsh-theme \ https://raw.githubusercontent.com/sindresorhus/pure/master/pure.zsh \
-	; fi
-	if [ ! -f ~/.oh-my-zsh/custom/async.zsh ]; then \
-		curl -sSLo ~/.oh-my-zsh/custom/async.zsh \
-		https://raw.githubusercontent.com/sindresorhus/pure/master/async.zsh \
-	; fi
-
-shell: zsh z oh-my-zsh zsh-syntax-highlighting pure-theme
-
-base-package:
-	add-apt-repository ppa:ubuntu-desktop/ubuntu-make
-
-	apt-get install --yes \
-		xsel \
-		evolution \
-		vlc \
-		vim \
-		deluge \
-		dropbox \
-		ubuntu-make
-
-	yarn global add cook-pm
-	cook atom
-	cook vivaldi
-	cook hyper
-	cook keeweb
-
-clean:
-	apt remove \
-		transmission \
-		thunderbird
-
-atom:
+atom() {
 	apm install \
 		minimap \
 		editorconfig \
@@ -108,10 +82,38 @@ atom:
 		linter \
 		linter-xo \
 		linter-eslint \
-		linter-stylelint \
-		linter-pylint \
 		atom-ternjs \
-		autocomplete-python
+		git-plus \
+		sort-lines \
+		hyperclick
+}
 
-bootstrap:
-	./bootstrap.sh
+shell() {
+	sudo apt-get install --yes zsh
+	chsh -s "$(which zsh)"
+
+	# z
+	if ! type z ; then \
+		curl -sSLo ~/.oh-my-zsh/plugins/z/z.sh https://raw.githubusercontent.com/rupa/z/master/z.sh \
+	; fi
+
+	# TODO: Use `antigen` instead of `oh-my-zsh`
+
+	# oh-my-zsh
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+	# zsh-syntax-highlighting
+	if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then \
+		git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
+		"${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" \
+	; fi
+
+	# pure-theme
+	if [ ! -f ~/.oh-my-zsh/custom/themes/pure.zsh-theme ]; then \
+		curl -sSLo ~/.oh-my-zsh/custom/themes/pure.zsh-theme \ https://raw.githubusercontent.com/sindresorhus/pure/master/pure.zsh \
+	; fi
+	if [ ! -f ~/.oh-my-zsh/custom/async.zsh ]; then \
+		curl -sSLo ~/.oh-my-zsh/custom/async.zsh \
+		https://raw.githubusercontent.com/sindresorhus/pure/master/async.zsh \
+	; fi
+}
