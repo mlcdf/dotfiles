@@ -11,7 +11,12 @@ git clone https://github.com/mlcdf/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ```
 
-Run the installer
-```bash
-make
+Install programs
+```console
+$ sudo ./bootstrap
+```
+
+Symlink files
+```console
+$ ./install
 ```
