@@ -9,19 +9,19 @@ set -e
 echo ''
 
 info () {
-  printf "\r  [ \033[00;34m..\033[0m ] %s\n" "$1"
+  printf "\r  [ \033[00;34m..\033[0m ] $1\n"
 }
 
 user () {
-  printf "\r  [ \033[0;33m??\033[0m ] %s\n" "$1"
+  printf "\r  [ \033[0;33m??\033[0m ] $1\n"
 }
 
 success () {
-  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] %s\n" "$1"
+  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
 }
 
 fail () {
-  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] %s\n" "$1"
+  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
   echo ''
   exit
 }
@@ -38,9 +38,9 @@ setup_gitconfig () {
     fi
 
     user ' - What is your github author name?'
-    read -re git_authorname
+    read -e git_authorname
     user ' - What is your github author email?'
-    read -re git_authoremail
+    read -e git_authoremail
 
     sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.local.symlink.example > git/gitconfig.local.symlink
 
@@ -52,7 +52,7 @@ setup_gitconfig () {
 link_file () {
   local src=$1 dst=$2
 
-  local overwrite=backup= skip=
+  local overwrite= backup= skip=
   local action=
 
   if [ -f "$dst" -o -d "$dst" -o -L "$dst" ]
@@ -61,8 +61,7 @@ link_file () {
     if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]
     then
 
-      local currentSrc
-      currentSrc="$(readlink $dst)"
+      local currentSrc="$(readlink $dst)"
 
       if [ "$currentSrc" == "$src" ]
       then
@@ -73,7 +72,7 @@ link_file () {
 
         user "File already exists: $dst ($(basename "$src")), what do you want to do?\n\
         [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
-        read -rn 1 action
+        read -n 1 action
 
         case "$action" in
           o )
@@ -130,9 +129,9 @@ install_dotfiles () {
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  for src in $(find -H "$PWD" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
+  for src in $(find -H "$PWD" -mindepth 1 -maxdepth 1 -name '.*' -not -path '*.git*')
   do
-    dst="$HOME/.$(basename "${src%.*}")"
+    dst="$HOME/$(basename "${src%}")"
     link_file "$src" "$dst"
   done
 }
