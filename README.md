@@ -4,7 +4,7 @@
 ## Prerequisites
 
 - [Git >= 2](https://git-scm.com/)
-- [Node.js >= 5](http://www.zsh.org/)
+- [Zsh >= 5](http://www.zsh.org/)
 
 ## Install
 
