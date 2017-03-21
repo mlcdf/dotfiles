@@ -83,7 +83,8 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
     // 'hyper-punk'
-    'hyper-snazzy',
+    //'hyper-snazzy',
+    'hyperterm-firewatch',
     'hyper-blink',
     'hyperterm-cursor',
     'hyper-dark-scrollbar',
