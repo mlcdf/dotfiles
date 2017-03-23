@@ -14,12 +14,12 @@ git clone https://github.com/mlcdf/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ```
 
-Install programs
+Symlink files
 ```console
 $ sudo ./bootstrap
 ```
 
-Symlink files
+Install programs
 ```console
 $ ./install
 ```
