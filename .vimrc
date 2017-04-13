@@ -56,4 +56,5 @@ set hlsearch		" highlight matches
 " JavaScript auto-completion
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 
-
+" Python 3 completion
+let g:ycm_python_binary_path = '/usr/bin/python3'
