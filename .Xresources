@@ -2,7 +2,7 @@
 
 
 ! Fonts
-xterm*faceName: Inconsolata, Fira Mono, Ubuntu Mono, Roboto Mono
+xterm*faceName: DejaVu Sans Mono, Cousine, Inconsolata, Fira Mono, Ubuntu Mono
 xterm*faceSize: 12
 
 xterm*selectToClipboard: true

@@ -12,7 +12,6 @@ ZSH_THEME="pure"
 plugins=(
     cp # use cpv to copy files using rsync
     git # tons of aliases
-    nvm # load nvm
     ubuntu # tons of aliases
     zsh-syntax-highlighting # syntax highlighting in the terminal
 )
@@ -31,6 +30,9 @@ fpath+=~/.zfunc
 source $ZSH/oh-my-zsh.sh
 source ~/.rvm/scripts/rvm
 source ~/.oh-my-zsh/plugins/z/z.sh
+
+# Alias hub as git
+eval "$(hub alias -s)"
 
 # Initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit

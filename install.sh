@@ -43,11 +43,9 @@ install_graphics() {
 }
 
 nodejs() {
-	wget -qO- --directory-prefix=".tmp" https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
-
-	nvm install --lts
-	nvm install stable
-	nvm use default --lts
+	npm install -g n
+	n lts
+	n stable # will be the default
 
 	npm config set sign-git-tag true
 }
