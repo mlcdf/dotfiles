@@ -43,11 +43,11 @@ install_graphics() {
 }
 
 nodejs() {
-	wget -qO- --directory-prefix=".tmp" https://raw.githubusercontent.com/creationix/nvm/v0.31.7/install.sh | bash
+	wget -qO- --directory-prefix=".tmp" https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
 
-	nvm install --lts=Boron (6.x.x.)
-	nvm install 7.7 # Current
-	nvm alias default 7.7
+	nvm install --lts
+	nvm install stable
+	nvm use default --lts
 
 	npm config set sign-git-tag true
 }
