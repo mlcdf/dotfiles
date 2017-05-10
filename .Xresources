@@ -4,6 +4,7 @@
 ! Fonts
 xterm*faceName: DejaVu Sans Mono, Cousine, Inconsolata, Fira Mono, Ubuntu Mono
 xterm*faceSize: 12
+xterm*internalBorder: 12 
 
 xterm*selectToClipboard: true
 
