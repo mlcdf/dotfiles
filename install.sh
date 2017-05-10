@@ -47,7 +47,11 @@ nodejs() {
 	n lts
 	n stable # will be the default
 
+	# Configuring npm this way because .npmrc contains a private token that
+	# obviously should not be versioned
 	npm config set sign-git-tag true
+	npm set init.license=MIT
+	npm set init.author.name=Maxime Le Conte des Floris
 }
 
 yarnpkg() {
