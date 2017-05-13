@@ -24,14 +24,12 @@ base() {
 		zip \
 		--no-install-recommends
 
-		apt-get autoremove
-		apt-get autoclean
-		apt-get clean
+	apt-get autoremove
+	apt-get autoclean
+	apt-get clean
 
-		yarn global add cook-pm
-		cook atom
-		cook hyper
-		cook keeweb
+	snap install --classic atom
+
 }
 
 install_graphics() {
