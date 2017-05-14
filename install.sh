@@ -22,6 +22,9 @@ base() {
 		vlc \
 		xsel \
 		zip \
+		htop \
+		parcellite \
+		software-properties-common \
 		--no-install-recommends
 
 	apt-get autoremove
