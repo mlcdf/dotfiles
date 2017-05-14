@@ -92,28 +92,5 @@ shell() {
 	sudo apt-get install --yes zsh
 	chsh -s "$(which zsh)"
 
-	# z
-	if ! type z ; then \
-		curl -sSLo ~/.oh-my-zsh/plugins/z/z.sh https://raw.githubusercontent.com/rupa/z/master/z.sh \
-	; fi
-
-	# TODO: Use `antigen` instead of `oh-my-zsh`
-
-	# oh-my-zsh
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-	# zsh-syntax-highlighting
-	if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then \
-		git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
-		"${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" \
-	; fi
-
-	# pure-theme
-	if [ ! -f ~/.oh-my-zsh/custom/themes/pure.zsh-theme ]; then \
-		curl -sSLo ~/.oh-my-zsh/custom/themes/pure.zsh-theme \ https://raw.githubusercontent.com/sindresorhus/pure/master/pure.zsh \
-	; fi
-	if [ ! -f ~/.oh-my-zsh/custom/async.zsh ]; then \
-		curl -sSLo ~/.oh-my-zsh/custom/async.zsh \
-		https://raw.githubusercontent.com/sindresorhus/pure/master/async.zsh \
-	; fi
+	git clone https://github.com/zsh-users/antigen.git
 }

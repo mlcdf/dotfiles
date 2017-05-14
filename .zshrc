@@ -1,20 +1,23 @@
 #!/bin/zsh
 
-# Path to your oh-my-zsh installation.
-export ZSH=~/.oh-my-zsh
+source ~/Apps/antigen/antigen.zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-ZSH_THEME="pure"
+# Load the oh-my-zsh's library
+antigen use oh-my-zsh
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(
-    cp # use cpv to copy files using rsync
-    git # tons of aliases
-    ubuntu # tons of aliases
-    zsh-syntax-highlighting # syntax highlighting in the terminal
-)
+# Bundles from the default repo (oh-my-zsh)
+antigen bundle git
+antigen bundle ubuntu
+antigen bundle cp
+
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle rupa/z
+
+antigen bundle mafredri/zsh-async
+antigen bundle sindresorhus/pure
+
+antigen apply
 
 # Load our dotfiles like ~/.bash_prompt, etc…
 #   ~/.extra can be used for settings you don’t want to commit,
@@ -26,14 +29,10 @@ unset file
 
 fpath+=~/.zfunc
 
-# Load rvm, z & oh-my-zsh
-source $ZSH/oh-my-zsh.sh
 source ~/.rvm/scripts/rvm
-source ~/.oh-my-zsh/plugins/z/z.sh
 
 # Alias hub as git
 eval "$(hub alias -s)"
 
 # Initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
+autoload -U compinit && compinit
