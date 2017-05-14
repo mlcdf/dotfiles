@@ -28,7 +28,7 @@ for file in ~/.{extra,aliases,functions}; do
 done
 unset file
 
-# source ~/.rvm/scripts/rvm
+source ~/.rvm/scripts/rvm
 
 # zsh-autosuggestions color
 # needs to be exported here otherwise, it is overridden
