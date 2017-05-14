@@ -4,7 +4,7 @@
 ! Fonts
 xterm*faceName: DejaVu Sans Mono, Cousine, Inconsolata, Fira Mono, Ubuntu Mono
 xterm*faceSize: 12
-xterm*internalBorder: 12 
+xterm*internalBorder: 12
 
 xterm*selectToClipboard: true
 
@@ -19,7 +19,7 @@ xterm*.foreground: #eff0eb
 xterm*.background: #282A36
 ! Black cursor
 xterm*.color0:     #000000
-xterm*.color8:     #4D4D4D
+xterm*.color8:     #686868
 ! Red
 xterm*.color1:     #ff5c57
 xterm*.color9:     #ff5c57
@@ -40,4 +40,4 @@ xterm*.color6:     #9aedfe
 xterm*.color14:    #9aedfe
 ! White
 xterm*.color7:     #f1f1f0
-xterm*.color15: 	 #f1f1f0
+xterm*.color15: 	 #eff0eb

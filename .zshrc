@@ -29,3 +29,7 @@ done
 unset file
 
 # source ~/.rvm/scripts/rvm
+
+# zsh-autosuggestions color
+# needs to be exported here otherwise, it is overridden
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=black,bold"
