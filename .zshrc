@@ -12,6 +12,7 @@ antigen bundle cp
 
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-completions
 antigen bundle rupa/z
 
 antigen bundle mafredri/zsh-async
@@ -27,12 +28,4 @@ for file in ~/.{extra,aliases,functions}; do
 done
 unset file
 
-fpath+=~/.zfunc
-
-source ~/.rvm/scripts/rvm
-
-# Alias hub as git
-eval "$(hub alias -s)"
-
-# Initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit && compinit
+# source ~/.rvm/scripts/rvm
