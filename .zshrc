@@ -7,8 +7,6 @@ antigen use oh-my-zsh
 
 # Bundles from the default repo (oh-my-zsh)
 antigen bundle git
-antigen bundle ubuntu
-antigen bundle cp
 
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
