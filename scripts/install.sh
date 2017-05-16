@@ -52,6 +52,8 @@ nodejs() {
 	npm config set sign-git-tag true
 	npm set init.license=MIT
 	npm set init.author.name=Maxime Le Conte des Floris
+
+	npm install -g legit
 }
 
 yarnpkg() {
