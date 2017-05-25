@@ -17,6 +17,9 @@ export NODE_PATH="$NPM_PACKAGES/lib/node_modules${NODE_PATH:+:$NODE_PATH}"
 export PATH="$PATH:$NPM_PACKAGES/bin"
 export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin/"
 
+unset MANPATH  # delete if you already modified MANPATH elsewhere in your config
+export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+
 # Ruby
 export PATH="$PATH:$HOME/.rvm/gems/ruby-2.3.0/bin"
 export PATH="$PATH:$HOME/.rvm/bin"
