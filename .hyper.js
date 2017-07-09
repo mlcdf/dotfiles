@@ -67,12 +67,25 @@ module.exports = {
     bell: 'SOUND',
 
     // if true, selected text will automatically be copied to the clipboard
-    copyOnSelect: true
+    copyOnSelect: true,
 
     // URL to custom bell
     // bellSoundURL: 'http://example.com/bell.mp3',
 
     // for advanced config flags please refer to https://hyper.is/#cfg
+
+
+    paneNavigation: {
+      hotkeys: {
+        navigation: {
+          up: 'alt+up',
+          down: 'alt+down',
+          left: 'alt+left',
+          right: 'alt+right'
+        },
+      },
+      focusOnMouseHover: true
+    }
   },
 
   // a list of plugins to fetch and install from npm
@@ -83,8 +96,12 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
     //'hyperpunk',
-    'hyper-snazzy',
+    'hyper-dracula',
     //'hyperterm-firewatch',
+    'hyperterm-alternatescroll',
+    'hyperterm-paste',
+    'hyperlinks',
+    'hyper-pane',
     'hyper-blink',
     'hyperterm-cursor',
     'hyper-dark-scrollbar',
