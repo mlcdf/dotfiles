@@ -1,5 +1,5 @@
 # dotfiles
-> :wrench: .files: zsh, oh-my-zsh, z, git, node.js, python, atom, ...
+> :wrench: .files: zsh, git, node.js, python, ...
 
 ## Prerequisites
 
