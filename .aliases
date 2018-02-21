@@ -20,11 +20,6 @@ alias mv='mv -i'
 # untar
 alias untar='tar xvf'
 
-# Shortcuts
-alias _dl="cd ~/Downloads"
-alias _code="cd ~/Code"
-alias _dot="cd ~/.dotfiles"
-
 # run docker
 alias docker='sudo -g docker docker'
 
