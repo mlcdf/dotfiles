@@ -23,9 +23,6 @@ alias untar='tar xvf'
 # run docker
 alias docker='sudo -g docker docker'
 
-# serve files relative to the current directory
-alias serve='python3 -m http.server'
-
 # Launch Firefox
 # See https://developer.mozilla.org/en-US/docs/Mozilla/Command_Line_Options
 alias ff=firefox
@@ -44,9 +41,6 @@ alias histg="history | grep"
 
 # Clean /boot
 alias clean-boot="sudo dpkg --get-selections|grep 'linux-image*'|awk '{print $1}'|egrep -v \"linux-image-$(uname -r)|linux-image-generic\" |while read n;do sudo apt-get -y remove $n;done"
-
-# Shutdown the computer
-alias shutdown='sudo shutdown -h now'
 
 # Get the local IP
 alias lip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | awk '{print \$2}'"

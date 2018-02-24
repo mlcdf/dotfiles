@@ -1,10 +1,13 @@
 #!/bin/bash
 
+# Install softwares and tools
+
 set -o nounset
 set -o errexit
 
 base() {
 	add-apt-repository ppa:ubuntu-desktop/ubuntu-make
+	add-apt-repository ppa:webupd8team/terminix
 
 	apt update
 	apt --yes upgrade
@@ -23,15 +26,13 @@ base() {
 		xsel \
 		zip \
 		htop \
-		parcellite \
+		tilix \
 		software-properties-common \
 		--no-install-recommends
 
 	apt autoremove
 	apt autoclean
 	apt clean
-
-	snap install --classic atom
 }
 
 install_graphics() {
@@ -44,7 +45,6 @@ install_graphics() {
 
 nodejs() {
 	npm install -g n
-	n lts
 	n stable # will be the default
 
 	# Configuring npm this way because .npmrc contains a private token that
@@ -52,8 +52,6 @@ nodejs() {
 	npm config set sign-git-tag true
 	npm set init.license=MIT
 	npm set init.author.name=Maxime Le Conte des Floris
-
-	npm install -g legit
 }
 
 yarnpkg() {

@@ -2,6 +2,8 @@
 
 export EDITOR="vim"
 
+setopt HIST_IGNORE_SPACE
+
 # Set language environment
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
