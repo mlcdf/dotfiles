@@ -20,16 +20,23 @@ def get_local_ip():
 
 def main():
     p = optparse.OptionParser(description=__doc__)
-    p.add_option("-p", "--port", dest="port", default=8000,
+    p.add_option("-p", "--port", dest="port", type="int", default=8000,
                   help="specify the port (default: 8000)")
+    p.add_option("-o", "--open", dest="open", default=False,
+                  help="open the url in a new browser tab", action="store_true")
     options, arguments = p.parse_args()
 
-    with socketserver.TCPServer(("", int(options.port)), http.server.SimpleHTTPRequestHandler) as httpd:
+    with socketserver.TCPServer(("", options.port), http.server.SimpleHTTPRequestHandler) as httpd:
         local_url = f"http://localhost:{options.port}"
         external_url = f"http://{get_local_ip()}:{options.port}"
         print("   Local URL:", local_url)
         print("External URL:", external_url)
-        copy_to_clipboard(local_url)
+
+        if (options.open):
+            webbrowser.open_new_tab(local_url)
+        else:
+            copy_to_clipboard(local_url)
+
         httpd.serve_forever()
 
 if __name__ == '__main__':
