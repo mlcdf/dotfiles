@@ -51,7 +51,7 @@ nodejs() {
 	# obviously should not be versioned
 	npm config set sign-git-tag true
 	npm set init.license=MIT
-	npm set init.author.name=Maxime Le Conte des Floris
+	npm set init.author.name="Maxime Le Conte des Floris"
 }
 
 yarnpkg() {
