@@ -33,6 +33,6 @@ export RUST_SRC_PATH="$HOME/.multirust/toolchains/stable-x86_64-unknown-linux-gn
 
 # Go
 export GOPATH="$HOME/Code/go"
-export GOROOT="$HOME/go"
+export GOROOT="/usr/local/go"
 export PATH="$PATH:$GOROOT/bin"
 export PATH="$PATH:$GOPATH/bin"
