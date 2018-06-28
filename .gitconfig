@@ -1,21 +1,21 @@
 [alias]
-  aa = add --all
-  cl = clone
-  ci = commit
-  co = checkout
-  cr = cherry-pick
-  br = branch
-  sb = status -sb
-  back = reset --soft HEAD~
-  abort = checkout .
-  filelog = log -u
+	aa = add --all
+	cl = clone
+	ci = commit
+	co = checkout
+	cr = cherry-pick
+	br = branch
+	sb = status -sb
+	back = reset --soft HEAD~
+	abort = checkout .
+	filelog = log -u
 	logtree = log --graph --oneline --decorate --all
 
 [color]
-  branch = auto
-  diff = auto
-  status = auto
-  ui = true
+	branch = auto
+	diff = auto
+	status = auto
+	ui = true
 
 [commit]
 	gpgsign = true
@@ -29,7 +29,7 @@
 
 # correct typos
 [help]
-  autocorrect = 1
+	autocorrect = 1
 
 [push]
 	default = current
