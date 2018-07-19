@@ -10,6 +10,8 @@
 	abort = checkout .
 	filelog = log -u
 	logtree = log --graph --oneline --decorate --all
+	# list the file in the previous commit
+	fipc = diff-tree --no-commit-id --name-only -r HEAD
 
 [color]
 	branch = auto
