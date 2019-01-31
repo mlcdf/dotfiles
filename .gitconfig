@@ -1,17 +1,21 @@
 [alias]
 	aa = add --all
-	cl = clone
 	ci = commit
 	co = checkout
 	cr = cherry-pick
-	br = branch
 	sb = status -sb
-	back = reset --soft HEAD~
-	abort = checkout .
+
+	undo = reset --soft HEAD~
+	prune = fetch --prune
+
 	filelog = log -u
 	logtree = log --graph --oneline --decorate --all
+
 	# list the file in the previous commit
 	fipc = diff-tree --no-commit-id --name-only -r HEAD
+
+[merge]
+	ff = only
 
 [color]
 	branch = auto
@@ -20,7 +24,7 @@
 	ui = true
 
 [commit]
-	gpgsign = true
+	# gpgsign = true
 
 [core]
 	excludesfile = ~/.gitignore
@@ -34,7 +38,11 @@
 	autocorrect = 1
 
 [push]
-	default = current
+	default = simple
+	followTags = true
+
+[status]
+	showUntrackedFiles = all
 
 # rewrites of repo paths
 [url "git@github.com:"]
