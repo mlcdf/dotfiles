@@ -8,9 +8,6 @@ setopt HIST_IGNORE_SPACE
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-export MANPATH="$MANPATH:/usr/local/man"
-export MANPATH="$MANPATH:$NPM_PACKAGES/share/man"
-
 export PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # Nodejs
@@ -19,8 +16,11 @@ export NODE_PATH="$NPM_PACKAGES/lib/node_modules${NODE_PATH:+:$NODE_PATH}"
 export PATH="$PATH:$NPM_PACKAGES/bin"
 export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin/"
 
-unset MANPATH  # delete if you already modified MANPATH elsewhere in your config
-export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+export MANPATH="$MANPATH:/usr/local/man"
+export MANPATH="$MANPATH:$NPM_PACKAGES/share/man"
+
+# Python / Pip
+export PATH="$PATH:$HOME/.local/bin"
 
 # Ruby
 export PATH="$PATH:$HOME/.rvm/gems/ruby-2.3.0/bin"
