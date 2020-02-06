@@ -4,7 +4,6 @@
 ## Prerequisites
 
 - [Git >= 2](https://git-scm.com/)
-- [Zsh >= 5](http://www.zsh.org/)
 
 ## Install
 
@@ -14,15 +13,17 @@ git clone https://github.com/mlcdf/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ```
 
-Symlink files
-```console
-$ sudo ./bootstrap
-```
-
 Install programs
 ```console
-$ ./install
+$ ./install.sh
 ```
+
+Symlink files
+```console
+./link.sh
+```
+
+Use a `.extra` file in your `$HOME` to put things that should not go into git.
 
 ## License
 

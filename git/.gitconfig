@@ -8,6 +8,9 @@
 	undo = reset --soft HEAD~
 	prune = fetch --prune
 
+  # Amend the curently staed files to the latest commit
+  amend = commit --amend --reuse-message=HEAD
+
 	filelog = log -u
 	logtree = log --graph --oneline --decorate --all
 
@@ -28,10 +31,6 @@
 
 [core]
 	excludesfile = ~/.gitignore
-	attributesfile = ~/.gitattributes
-
-[github]
-	user = mlcdf
 
 # correct typos
 [help]
@@ -43,15 +42,6 @@
 
 [status]
 	showUntrackedFiles = all
-
-# rewrites of repo paths
-[url "git@github.com:"]
-	pushInsteadOf = https://github.com/
-	pushInsteadOf = "github:"
-	pushInsteadOf = "git://github.com/"
-
-[url "git://github.com/"]
-	insteadOf = "github:"
 
 [user]
 	name = Maxime Le Conte des Floris
