@@ -23,7 +23,7 @@ Symlink files
 ./link.sh
 ```
 
-Use a `.extra` file in your `$HOME` to put things that should not go into git.
+Use a `.extra` file in your `$HOME` to put things you don't want to commit
 
 ## License
 
