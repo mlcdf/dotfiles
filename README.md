@@ -15,7 +15,7 @@ cd ~/.dotfiles
 
 Install programs
 ```console
-$ ./install.sh
+./install.sh
 ```
 
 Symlink files
