@@ -1,21 +1,28 @@
 [alias]
+	s = status -s
 	aa = add --all
 	ci = commit
 	co = checkout
 	cr = cherry-pick
-	sb = status -sb
 
 	undo = reset --soft HEAD~
 	prune = fetch --prune
 
-  # Amend the curently staed files to the latest commit
-  amend = commit --amend --reuse-message=HEAD
+	# Amend the curently staed files to the latest commit
+	amend = commit --amend --reuse-message=HEAD
 
 	filelog = log -u
 	logtree = log --graph --oneline --decorate --all
 
-	# list the file in the previous commit
-	fipc = diff-tree --no-commit-id --name-only -r HEAD
+	# Show verbose output about tags, branches or remotes
+	# borrowed from jessfraz's dotfiles
+	tags = tag -l
+	branches = branch -a
+	remotes = remote -v
+
+[apply]
+	# Detect whitespace errors when applying a patch
+	whitespace = fix
 
 [merge]
 	ff = only
@@ -24,13 +31,10 @@
 	branch = auto
 	diff = auto
 	status = auto
-	ui = true
-
-[commit]
-	# gpgsign = true
 
 [core]
 	excludesfile = ~/.gitignore
+	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
 
 # correct typos
 [help]
@@ -42,11 +46,3 @@
 
 [status]
 	showUntrackedFiles = all
-
-[user]
-	name = Maxime Le Conte des Floris
-	email = maxime.lcdf@gmail.com
-	signingkey = EF94DD95
-
-[gpg]
-	program = gpg2
