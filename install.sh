@@ -35,7 +35,6 @@ sudo dnf install -y \
 	vagrant \
 	dconf-editor \
 	zsh \
-	chsh -s $(which zsh) \
 	util-linux-user # provides chsh used below to set zsh as default shell
 
 sudo dnf remove -y rhythmbox
