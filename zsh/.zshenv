@@ -5,25 +5,24 @@ export EDITOR="vim"
 setopt HIST_IGNORE_SPACE
 
 # Set language environment
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+# export LANG=en_US.UTF-8
+#export LC_ALL=en_US.UTF-8
 
-export PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin"
+# export PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin"
 
-# Nodejs
-export NPM_PACKAGES="/home/max/.npm-packages"
-export NODE_PATH="$NPM_PACKAGES/lib/node_modules${NODE_PATH:+:$NODE_PATH}"
-export PATH="$PATH:$NPM_PACKAGES/bin"
-export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin/"
+bindkey "\033[1~" beginning-of-line
+bindkey "\033[4~" end-of-line
 
-export MANPATH="$MANPATH:/usr/local/man"
-export MANPATH="$MANPATH:$NPM_PACKAGES/share/man"
+# # Golang
+# export PATH="$PATH:$GOPATH"
 
+# # Nodejs
+# export NPM_PACKAGES="/home/max/.npm-packages"
+# export NODE_PATH="$NPM_PACKAGES/lib/node_modules${NODE_PATH:+:$NODE_PATH}"
+# export PATH="$PATH:$NPM_PACKAGES/bin"
 
-
-# Python / Pip
-export PATH="$PATH:$HOME/.local/bin"
-
+# # Python / Pip
+# export PATH="$PATH:$HOME/.local/bin"
 
 # Enable aliases to be sudo'ed
 alias sudo="sudo "
@@ -64,7 +63,7 @@ f() {
 }
 
 # List all files, long format, colorized, permissions in octal
-laa(){
+laa() {
   ls -l  "$@" | awk '
     {
       k=0;

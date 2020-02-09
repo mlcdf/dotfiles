@@ -13,6 +13,8 @@ sudo dnf config-manager -y --add-repo https://download.sublimetext.com/rpm/stabl
 sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
 	 https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
+sudo dnf copr enable jdoss/wireguard
+
 # Install RPMs
 sudo dnf update -y
 sudo dnf install -y \
@@ -28,11 +30,15 @@ sudo dnf install -y \
 	lollypop \
 	black \
 	golang \
+	golang-x-tools-gopls \
 	sublime-text \
 	vlc \
 	stow \
 	nodejs \
 	vagrant \
+	ansible \
+	wireguard-dkms \
+	wireguard-tools \
 	dconf-editor \
 	zsh \
 	util-linux-user # provides chsh used below to set zsh as default shell
@@ -79,3 +85,14 @@ dconf write /org/gnome/software/first-run false
 # sudo mkdir /backup
 # sudo mount /dev/sdd3 /backup
 # vi fstab
+
+
+# Wireguard
+# sudo umask 077
+# sudo wg genkey > privatekey
+# sudo wg pubkey < privatekey > publickey
+
+# sudo ip link add dev wg0 type wireguard
+# sudo ip address add dev wg0 192.168.2.1 peer 192.168.2.2
+# sudo wg setconf wg0 myconfig.conf
+# sudo ip link set up dev wg0
