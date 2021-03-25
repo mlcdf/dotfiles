@@ -2,33 +2,19 @@
 
 export EDITOR="vim"
 
-setopt HIST_IGNORE_SPACE
+# Golang
+export PATH="$PATH:$GOPATH"
 
-# Set language environment
-# export LANG=en_US.UTF-8
-#export LC_ALL=en_US.UTF-8
+# Node.js
+export NPM_PACKAGES="/home/max/.npm-packages"
+export NODE_PATH="$NPM_PACKAGES/lib/node_modules${NODE_PATH:+:$NODE_PATH}"
+export PATH="$PATH:$NPM_PACKAGES/bin"
 
-# export PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin"
-
-bindkey "\033[1~" beginning-of-line
-bindkey "\033[4~" end-of-line
-
-# # Golang
-# export PATH="$PATH:$GOPATH"
-
-# # Nodejs
-# export NPM_PACKAGES="/home/max/.npm-packages"
-# export NODE_PATH="$NPM_PACKAGES/lib/node_modules${NODE_PATH:+:$NODE_PATH}"
-# export PATH="$PATH:$NPM_PACKAGES/bin"
-
-# # Python / Pip
-# export PATH="$PATH:$HOME/.local/bin"
+# Python / Pip
+export PATH="$PATH:$HOME/.local/bin"
 
 # Enable aliases to be sudo'ed
 alias sudo="sudo "
-
-# Open a file
-alias open='xdg-open'
 
 # Create the directory
 # -p  create all directories leading up to the given directory
@@ -40,27 +26,6 @@ alias cp='cp -i'
 
 # move file interactive
 alias mv='mv -i'
-
-
-# Manage the clipboard via xsel
-cb() {
-  if [ -z "$1" ]; then
-    xsel --clipboard --output
-  else
-    echo "$1" | xsel --clipboard --input
-  fi
-}
-
-# Download .gitignore files
-gi() {
-  curl -L -s "https://www.gitignore.io/api/$@" | tail -n +5 | head -n -2
-}
-
-
-# find shorthand
-f() {
-  find . -name "$1" 2>&1 | grep -v 'Permission denied'
-}
 
 # List all files, long format, colorized, permissions in octal
 laa() {
@@ -74,3 +39,6 @@ laa() {
       printf(" %9s  %3s %2s %5s  %8s  %s %s %s\n", $3, $6, $7, $8, $5, $9,$10, $11);
     }'
 }
+
+alias ll="ls -l"
+alias lla="ls -la"

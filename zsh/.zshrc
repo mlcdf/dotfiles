@@ -10,8 +10,6 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 
 antigen bundle rupa/z
-antigen bundle mafredri/zsh-async
-antigen bundle sindresorhus/pure
 
 antigen apply
 
@@ -23,3 +21,9 @@ fi
 # zsh-autosuggestions color
 # needs to be exported here otherwise, it is overridden
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=black,bold"
+
+
+fpath+=("$HOME/.npm-packages/lib/node_modules/pure-prompt/functions")
+
+autoload -U promptinit; promptinit
+prompt pure
