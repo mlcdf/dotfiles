@@ -40,9 +40,23 @@
 [help]
 	autocorrect = 1
 
+# https://stackoverflow.com/a/23918418/89484
 [push]
-	default = simple
+	default = current
 	followTags = true
+
+[pull]
+	ff = only
+	default = current
+
+[checkout]
+	defaultRemote = origin
 
 [status]
 	showUntrackedFiles = all
+
+[include]
+  path = ~/.gitconfig.local
+
+[fetch]
+	prune = true
