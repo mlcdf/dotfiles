@@ -1,0 +1,50 @@
+---
+
+- name: create {{ dyndns_dest }} if not exists
+  file:
+    path: "{{ dyndns_dest }}"
+    state: directory
+
+- name: download for x86_64
+  get_url:
+    url: "{{ dyndns_release_baseurl }}/{{dyndns_latest_release}}/dyndns-{{dyndns_latest_release}}-linux-amd64"
+    dest: "{{ dyndns_dest }}/dyndns"
+    mode: "700"
+  when: ansible_architecture == "x86_64"
+
+- name: download for armv6
+  get_url:
+    url: "{{ dyndns_release_baseurl }}/{{dyndns_latest_release}}/dyndns-{{dyndns_latest_release}}-linux-arm"
+    dest: "{{ dyndns_dest }}/dyndns"
+    mode: "700"
+  when: '"armv6" in ansible_architecture'
+
+- name: download for arm7
+  get_url:
+    url: "{{ dyndns_release_baseurl }}/{{dyndns_latest_release}}/dyndns-{{dyndns_latest_release}}-linux-arm64"
+    dest: "{{ dyndns_dest }}/dyndns"
+    mode: "700"
+  when: '"armv7" in ansible_architecture'
+
+- name: "cron : set DISCORD_WEBHOOK_URL env var"
+  ansible.builtin.cron:
+    name: DISCORD_WEBHOOK_URL
+    env: yes
+    job: '{{ lookup("env", "DISCORD_WEBHOOK_URL") }}'
+    user: '{{ ansible_user }}'
+  no_log: true
+
+- name: "cron : set GANDI_TOKEN env var"
+  ansible.builtin.cron:
+    name: GANDI_TOKEN
+    env: yes
+    job: '{{ lookup("env", "GANDI_TOKEN") }}'
+    user: '{{ ansible_user }}'
+  no_log: true
+
+- name: "cron : setup job to run every 10 minutes"
+  cron:
+    name: "dyndns"
+    minute: "*/10"
+    job: "/home/{{ ansible_user }}/.local/bin/dyndns --domain mlcdf.fr --record '*.pi' --livebox 2>&1 | /usr/bin/logger -t dyndns &"
+    user: "{{ ansible_user }}"

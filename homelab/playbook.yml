@@ -1,0 +1,10 @@
+---
+# Entrypoint
+
+- name: configure Raspberry Pi
+  hosts: pi
+  remote_user: pi
+
+  roles:
+    - pi
+    - dyndns

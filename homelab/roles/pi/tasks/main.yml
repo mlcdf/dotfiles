@@ -1,0 +1,8 @@
+---
+
+- name: add ssh key to authorized_key
+  authorized_key:
+    user: "{{ ansible_user }}"
+    key: '{{ lookup("file", "id_rsa.pub") }}'
+    state: present
+
