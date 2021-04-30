@@ -8,4 +8,4 @@ fi
 
 python3 -V
 python3 -m pip install github-backup
-github-backup mlcdf -t $GITHUB_TOKEN --starred  --repositories   --gists  --private -o github-backup
+github-backup mlcdf -t $GITHUB_TOKEN --starred --repositories --gists  --private -o github-backup

@@ -8,7 +8,7 @@
 	undo = reset --soft HEAD~
 	prune = fetch --prune
 
-	# Amend the curently staed files to the latest commit
+	# Amend the curently staged files to the latest commit
 	amend = commit --amend --reuse-message=HEAD
 
 	filelog = log -u
@@ -19,6 +19,8 @@
 	tags = tag -l
 	branches = branch -a
 	remotes = remote -v
+
+	changelog = log --pretty="- %h %s" -l 2 -n12
 
 [apply]
 	# Detect whitespace errors when applying a patch
