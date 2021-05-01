@@ -1,6 +1,6 @@
 # Homelab
 
-Ansible playbook to deploy my homelab (as of right now, I single Raspberry Pi 1 B+... yeah)
+Ansible playbook to deploy my homelab (as of right now, a single Raspberry Pi 1 B+... yeah)
 
 ## Requirements
 
@@ -9,10 +9,10 @@ sudo apt install sshpass
 pip3 install "pywinrm>=0.2.2"
 ```
 
-# Run
+## Usage
 
 ```sh
 ansible-playbook -i hosts playbook.yml
 ```
 
-run ansible_pass
+On first run, add `--extra-var ansible_pass=raspberrypi` which is the default password for the Rpi.
