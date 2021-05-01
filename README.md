@@ -3,9 +3,10 @@
 I am *distro jumping* too much and this makes maintaining a do-everything dotfiles repo a pain. So I try to keep this repository
 as simple as possible and distro independent.
 
-This repository is manage using `stow`, most directories only containing stuff that will be symlinked from `$HOME`. The few exceptions are:
+This repository is managed using `stow`, most directories only containing stuff that will be symlinked from `$HOME`. The few exceptions are:
 - `/backup`: scripts to backup my data
 - `/homelab`: used to deploy my modest homelab
+- `/snippets`: just code snippets
 
 ## Usage
 
@@ -13,7 +14,7 @@ This repository is manage using `stow`, most directories only containing stuff t
 ./install.sh
 ```
 
-Use a `.extra` file in the `$HOME` can be use to put things shouldn't be commited. This file will be `source` by the `.bashrc`.
+An `.extra` file in the `$HOME` can be use to put things that shouldn't be commited (This file will be `source` by the `.bashrc`).
 
 ## License
 

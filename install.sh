@@ -1,6 +1,8 @@
 #!/bin/bash
-
-# Commands run here should be idempotent.
+# 
+# This script is indented to be run after every changes. Therefore below commands
+# should be idempotent.
+#
 
 set -e
 
