@@ -1,3 +1,7 @@
+[user]
+	name = Maxime Le Conte des Floris
+	email = maxime.lcdf@gmail.com
+
 [alias]
 	s = status -s
 	aa = add --all
@@ -14,13 +18,13 @@
 	filelog = log -u
 	logtree = log --graph --oneline --decorate --all
 
+	changelog = log --pretty="- %h %s" -l 2 -n12
+
 	# Show verbose output about tags, branches or remotes
 	# borrowed from jessfraz's dotfiles
 	tags = tag -l
 	branches = branch -a
 	remotes = remote -v
-
-	changelog = log --pretty="- %h %s" -l 2 -n12
 
 [apply]
 	# Detect whitespace errors when applying a patch

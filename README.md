@@ -3,28 +3,14 @@
 I am *distro jumping* too much and this makes maintaining a do-everything dotfiles repo a pain. So I now try keep this repository
 as simple as possible and distro independent.
 
-## Prerequisites
-
-- [Git >= 2](https://git-scm.com/)
-
-## Install
-
-Clone this repository in **~/.dotfiles**
-```bash
-git clone https://github.com/mlcdf/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
-```
+This repository is manage using `stow`, most directory only contains stuffs that will be symlinked. The few exceptions are:
+- `/backup`: scripts to backup my data
+- `/homelab`: used to deploy my modest homelab
 
 ## Usage
 
-Install softwares
-```console
+```sh
 ./install.sh
-```
-
-Symlink files
-```console
-./link.sh
 ```
 
 Use a `.extra` file in your `$HOME` to put things you don't want to commit

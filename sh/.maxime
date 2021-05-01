@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# This file contains my shells customizations
+# It should be source at the end of ~/.bashrc
+
 export EDITOR="vim"
 
 # Golang
@@ -12,6 +15,9 @@ export PATH="$PATH:$NPM_PACKAGES/bin"
 
 # Python / Pip
 export PATH="$PATH:$HOME/.local/bin"
+
+# Golang
+export PATH=$PATH:/usr/local/go/bin
 
 # Enable aliases to be sudo'ed
 alias sudo="sudo "
@@ -42,3 +48,8 @@ laa() {
 
 alias ll="ls -l"
 alias lla="ls -la"
+
+# Use .extra to put things you don't want to commit
+if [ -r .extra ]; then
+  source .extra
+fi
