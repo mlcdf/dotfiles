@@ -15,7 +15,7 @@ sudo apt install -y \
 	tree \
 	htop \
 	vim \
-	vlc \
+	ansible \
 	stow
 
 echo "Remove unused packages"
@@ -33,3 +33,6 @@ stow --target=$HOME vim -R
 
 echo "Source .maxime from existing ~/.bashrc"
 grep -q -F "source .maxime" ~/.bashrc || echo -e "\nsource .maxime" >> ~/.bashrc
+
+echo "Run ansible playbook on localhost"
+ansible-playbook -i homelab/hosts/local homelab/playbook.yml

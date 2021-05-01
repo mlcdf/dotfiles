@@ -12,7 +12,7 @@ pip3 install "pywinrm>=0.2.2"
 ## Usage
 
 ```sh
-ansible-playbook -i hosts playbook.yml
+ansible-playbook -i hosts/pi playbook.yml
 ```
 
 On first run, add `--extra-var ansible_pass=raspberrypi` which is the default password for the Rpi.

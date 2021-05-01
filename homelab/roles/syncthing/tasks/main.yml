@@ -1,0 +1,25 @@
+---
+
+- name: download gpg key
+  get_url:
+    url:  https://syncthing.net/release-key.gpg
+    dest: /usr/share/keyrings/syncthing-archive-keyring.gpg
+  become: true
+
+- name: add specified repository into sources list using specified filename
+  apt_repository:
+    repo: deb [signed-by=/usr/share/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable
+    state: present
+    filename: syncthing
+  become: true
+
+- name: install Syncthing
+  apt: name=syncthing
+  become: true
+
+- name: enable and ensure Syncthing is started
+  systemd:
+    name: syncthing
+    enabled: yes
+    state: started
+    scope: user
