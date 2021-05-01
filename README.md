@@ -1,5 +1,7 @@
 # dotfiles
-> :wrench: .files: zsh, git, node.js, python, ...
+
+I am *distro jumping* too much and this makes maintaining a do-everything dotfiles repo a pain. So I now try keep this repository
+as simple as possible and distro independent.
 
 ## Prerequisites
 
@@ -13,7 +15,9 @@ git clone https://github.com/mlcdf/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ```
 
-Install programs
+## Usage
+
+Install softwares
 ```console
 ./install.sh
 ```
