@@ -27,7 +27,7 @@
   when: '"armv7" in ansible_architecture'
 
 - name: "cron : set DISCORD_WEBHOOK_URL env var"
-  ansible.builtin.cron:
+  cron:
     name: DISCORD_WEBHOOK_URL
     env: yes
     job: '{{ lookup("env", "DISCORD_WEBHOOK_URL") }}'
@@ -35,7 +35,7 @@
   no_log: true
 
 - name: "cron : set GANDI_TOKEN env var"
-  ansible.builtin.cron:
+  cron:
     name: GANDI_TOKEN
     env: yes
     job: '{{ lookup("env", "GANDI_TOKEN") }}'
