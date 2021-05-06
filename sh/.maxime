@@ -5,9 +5,6 @@
 
 export EDITOR="vim"
 
-# Golang
-export PATH="$PATH:$GOPATH"
-
 # Node.js
 export NPM_PACKAGES="/home/max/.npm-packages"
 export NODE_PATH="$NPM_PACKAGES/lib/node_modules${NODE_PATH:+:$NODE_PATH}"
