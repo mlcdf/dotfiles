@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# This file contains my shells customizations
+# This file contains my shell customizations
 # It should be source at the end of ~/.bashrc
 
 export EDITOR="vim"
@@ -10,7 +10,7 @@ export NPM_PACKAGES="/home/max/.npm-packages"
 export NODE_PATH="$NPM_PACKAGES/lib/node_modules${NODE_PATH:+:$NODE_PATH}"
 export PATH="$PATH:$NPM_PACKAGES/bin"
 
-# Python / Pip
+# Python
 export PATH="$PATH:$HOME/.local/bin"
 
 # Golang
