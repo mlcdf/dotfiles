@@ -1,0 +1,10 @@
+syncthing.pi.mlcdf.fr {
+  reverse_proxy /* 127.0.0.1:8384
+}
+
+pi.mlcdf.fr {
+  root * /home/homelab/public_html
+  file_server {
+    hide .git
+  }
+}

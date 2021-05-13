@@ -6,14 +6,16 @@
   remote_user: pi
 
   roles:
-    - { role: 'pi', tags: 'pi' }
-    - { role: 'dyndns', tags: 'dyndns' }
-    - { role: 'syncthing', tags: 'syncthing' }
+    - { role: "pi", tags: ["pi"] }
+    - { role: "dyndns", tags: ["dyndns"] }
+    - { role: "syncthing", tags: ["syncthing"] }
+    - { role: "caddy", tags: ["caddy"] }
 
 - name: configure local machine
   hosts: local
   tasks:
-    - import_role:
+    - name: import syncthing role
+      import_role:
         name: syncthing
-      tags: 'syncthing'
+      tags: "syncthing"
       when: ansible_hostname == "pluto"
