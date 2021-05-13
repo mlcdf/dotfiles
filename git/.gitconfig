@@ -1,6 +1,6 @@
 [user]
 	name = Maxime Le Conte des Floris
-	email = maxime.lcdf@gmail.com
+	email = git@mlcdf.fr
 
 [alias]
 	s = status -s
