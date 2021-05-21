@@ -10,7 +10,7 @@ ansible-playbook -i hosts/pi playbook.yml
 
 ### First run only
 
-Obliviously, SSH public key authentication won't work on the first run. You'll need to login via password:
+Obviously, SSH public key authentication won't work on the first run. You'll need to login via password:
 
 Install sshpass on the control machine
 ```sh
