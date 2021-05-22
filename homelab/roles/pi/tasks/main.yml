@@ -6,3 +6,39 @@
     key: '{{ lookup("file", "id_rsa.pub") }}'
     state: present
 
+- name: set timezone to Europe/Paris
+  timezone:
+    name: Europe/Paris
+  become: yes
+
+- name: install base packages
+  apt:
+    name: "{{ item }}"
+    update_cache: yes
+    state: latest
+  loop:
+    - curl
+    - vim
+    - git
+    - ufw
+
+- name: set default editor
+  lineinfile:
+    path: "~/.bashrc"
+    line: "{{ item }}"
+    state: present
+  loop:
+    - "export VISUAL=vim"
+    - 'export EDITOR="$VISUAL"'
+
+- name: Disable password authentication for root
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    state: present
+    regexp: "^#?PermitRootLogin"
+    line: "PermitRootLogin prohibit-password"
+
+- name: UFW - Allow SSH connections
+  ufw:
+    rule: allow
+    name: OpenSSH
