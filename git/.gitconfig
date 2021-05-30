@@ -18,7 +18,7 @@
 	filelog = log -u
 	logtree = log --graph --oneline --decorate --all
 
-	changelog = log --pretty="- %h %s" -l 2 -n12
+	changelog = log --pretty=\"- %h %s\" -l 2 -n12
 
 	# Show verbose output about tags, branches or remotes
 	# borrowed from jessfraz's dotfiles
