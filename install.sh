@@ -37,7 +37,7 @@ stow --target=$HOME fonts -R
 stow --target=$HOME vim -R
 
 info "Add source .maxime to existing ~/.bashrc"
-grep -q -F "source .maxime" ~/.bashrc || echo -e "\nsource ~/.maxime" >> ~/.bashrc
+grep -q -F "source ~/.maxime" ~/.bashrc || echo -e "\nsource ~/.maxime" >> ~/.bashrc
 
 info "Source ~/.bashrc"
 source ~/.bashrc
