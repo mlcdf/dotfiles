@@ -50,3 +50,5 @@ alias lla="ls -la"
 if [ -r .extra ]; then
   source .extra
 fi
+
+alias dot="code ~/.dotfiles"
