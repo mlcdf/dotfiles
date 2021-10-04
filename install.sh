@@ -1,5 +1,5 @@
 #!/bin/bash
-# 
+#
 # This script is indented to be run after every changes. Therefore below commands
 # should be idempotent.
 #
@@ -8,7 +8,7 @@ set -e
 
 # blue echo
 info() {
-    echo -e "\e[0;34m$1\e[m" 
+    echo -e "\e[0;34m$1\e[m"
 }
 
 info "Install packages"
@@ -36,8 +36,11 @@ stow --target=$HOME git -R
 stow --target=$HOME fonts -R
 stow --target=$HOME vim -R
 
-info "Source .maxime from existing ~/.bashrc"
-grep -q -F "source .maxime" ~/.bashrc || echo -e "\nsource .maxime" >> ~/.bashrc
+info "Add source .maxime to existing ~/.bashrc"
+grep -q -F "source .maxime" ~/.bashrc || echo -e "\nsource ~/.maxime" >> ~/.bashrc
+
+info "Source ~/.bashrc"
+source ~/.bashrc
 
 info "Run ansible playbook on localhost"
 ansible-playbook -i homelab/hosts/local homelab/playbook.yml
