@@ -15,13 +15,13 @@ info "Install packages"
 sudo apt update -y
 sudo apt install -y \
 	curl \
-	git \
 	make \
 	tree \
 	htop \
 	vim \
 	ansible \
-	stow
+	stow \
+	keepassxc
 
 info "Remove unused packages"
 sudo apt autoremove -y
