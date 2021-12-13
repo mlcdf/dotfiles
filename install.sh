@@ -21,7 +21,9 @@ sudo apt install -y \
 	vim \
 	ansible \
 	stow \
-	keepassxc
+	keepassxc \
+	python3-pip \
+	software-properties-common
 
 info "Remove unused packages"
 sudo apt autoremove -y
