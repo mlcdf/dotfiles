@@ -1,0 +1,8 @@
+
+---
+
+- name: "reload settings"
+  service:
+    name: transmission-daemon
+    state: reloaded
+  become: true
