@@ -52,3 +52,5 @@ if [ -r .extra ]; then
 fi
 
 alias dot="code ~/.dotfiles"
+
+alias dofus="/usr/local/games/ankama-launcher.AppImage"
