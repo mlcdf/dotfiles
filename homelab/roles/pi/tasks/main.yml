@@ -21,6 +21,7 @@
     - vim
     - git
     - ufw
+  become: yes
 
 - name: set default editor
   lineinfile:
@@ -37,8 +38,10 @@
     state: present
     regexp: "^#?PermitRootLogin"
     line: "PermitRootLogin prohibit-password"
+  become: yes
 
 - name: UFW - Allow SSH connections
   ufw:
     rule: allow
     name: OpenSSH
+  become: yes
