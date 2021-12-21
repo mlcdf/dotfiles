@@ -18,4 +18,4 @@
       import_role:
         name: syncthing
       tags: "syncthing"
-      when: ansible_hostname == "pluto"
+      when: ansible_hostname == "mercure"
