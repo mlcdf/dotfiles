@@ -17,14 +17,14 @@
     url: "{{ dyndns_release_baseurl }}/{{dyndns_latest_release}}/dyndns-{{dyndns_latest_release}}-linux-arm"
     dest: "{{ dyndns_dest }}/dyndns"
     mode: "700"
-  when: '"armv6" in ansible_architecture'
+  when: '"arm" in ansible_architecture and "32" in ansible_userspace_bits'
 
 - name: download for arm7
   get_url:
     url: "{{ dyndns_release_baseurl }}/{{dyndns_latest_release}}/dyndns-{{dyndns_latest_release}}-linux-arm64"
     dest: "{{ dyndns_dest }}/dyndns"
     mode: "700"
-  when: '"armv7" in ansible_architecture'
+  when: '"arm" in ansible_architecture and "64" in ansible_userspace_bits'
 
 - name: "cron : set DISCORD_WEBHOOK_URL env var"
   cron:
