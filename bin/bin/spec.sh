@@ -1,1 +1,2 @@
 inxi -Fxz
+

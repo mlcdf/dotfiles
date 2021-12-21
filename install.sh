@@ -23,7 +23,9 @@ sudo apt install -y \
 	stow \
 	keepassxc \
 	python3-pip \
-	software-properties-common
+	software-properties-common \
+	inxi \
+	nmap
 
 info "Remove unused packages"
 sudo apt autoremove -y
@@ -44,5 +46,5 @@ grep -q -F "source ~/.maxime" ~/.bashrc || echo -e "\nsource ~/.maxime" >> ~/.ba
 info "Source ~/.bashrc"
 source ~/.bashrc
 
-info "Run ansible playbook on localhost"
-ansible-playbook -i homelab/hosts/local homelab/playbook.yml
+# info "Run ansible playbook on localhost"
+# ansible-playbook -i homelab/hosts/local homelab/playbook.yml
