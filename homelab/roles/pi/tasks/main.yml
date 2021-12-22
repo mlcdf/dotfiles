@@ -1,5 +1,11 @@
 ---
 
+# https://docs.ansible.com/ansible/2.3/intro_configuration.html#pipelining
+# https://github.com/ansible/ansible/issues/15127
+- name: Remove require tty
+  lineinfile: regexp="(\s+)?\w+\s+requiretty" dest=/etc/sudoers state=absent
+  become: yes
+
 - name: Add ssh key to authorized_key
   authorized_key:
     user: "{{ ansible_user }}"
