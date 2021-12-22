@@ -1,6 +1,6 @@
 ---
 
-- name: add ssh key to authorized_key
+- name: Add ssh key to authorized_key
   authorized_key:
     user: "{{ ansible_user }}"
     key: '{{ lookup("file", "id_rsa.pub") }}'
@@ -11,7 +11,7 @@
     name: Europe/Paris
   become: yes
 
-- name: install base packages
+- name: Install base packages
   apt:
     name: "{{ item }}"
     update_cache: yes
@@ -21,9 +21,10 @@
     - vim
     - git
     - ufw
+    - fail2ban
   become: yes
 
-- name: set default editor
+- name: Set default editor
   lineinfile:
     path: "~/.bashrc"
     line: "{{ item }}"
@@ -32,16 +33,36 @@
     - "export VISUAL=vim"
     - 'export EDITOR="$VISUAL"'
 
-- name: Disable password authentication for root
+- name: Update SSH configuration to be more secure
   lineinfile:
-    path: /etc/ssh/sshd_config
+    dest: /etc/ssh/sshd_config
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
     state: present
-    regexp: "^#?PermitRootLogin"
-    line: "PermitRootLogin prohibit-password"
+    validate: 'sshd -t -f %s'
+  with_items:
+    - regexp: "^PasswordAuthentication"
+      line: "PasswordAuthentication no"
+    - regexp: "^PermitRootLogin"
+      line: "PermitRootLogin no"
+  notify: restart ssh
   become: yes
 
 - name: UFW - Allow SSH connections
   ufw:
     rule: allow
     name: OpenSSH
+  become: yes
+
+- name: configure fail2ban
+  copy:
+    src: jail.conf
+    dest: /etc/fail2ban/jail.local
+  become: yes
+  notify: restart fail2ban
+ 
+- name: enabled fail2ban
+  service:
+    name: fail2ban
+    enabled: yes
   become: yes
