@@ -15,7 +15,7 @@
   apt:
     name: "{{ item }}"
     update_cache: yes
-    state: latest
+    state: present
   loop:
     - curl
     - vim
@@ -65,4 +65,23 @@
   service:
     name: fail2ban
     enabled: yes
+  become: yes
+
+# Automating updates for Debian systems.
+- name: Install unattended upgrades package
+  apt:
+    name: unattended-upgrades
+    state: present
+  become: yes
+
+- name: Copy unattended-upgrades configuration files in place
+  template:
+    src: "../templates/{{ item }}.j2"
+    dest: "/etc/apt/apt.conf.d/{{ item }}"
+    owner: root
+    group: root
+    mode: 0644
+  with_items:
+    - 20auto-upgrades
+    - 50unattended-upgrades
   become: yes
