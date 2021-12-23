@@ -30,7 +30,7 @@
   cron:
     name: DISCORD_WEBHOOK_URL
     env: yes
-    job: '{{ lookup("env", "DISCORD_WEBHOOK_URL") }}'
+    job: '{{ lookup("ini", "DISCORD_WEBHOOK_URL type=properties file=.secrets.ini") }}'
     user: '{{ ansible_user }}'
   no_log: true
 
@@ -38,7 +38,7 @@
   cron:
     name: GANDI_TOKEN
     env: yes
-    job: '{{ lookup("env", "GANDI_TOKEN") }}'
+    job: '{{ lookup("ini", "GANDI_TOKEN type=properties file=.secrets.ini") }}'
     user: '{{ ansible_user }}'
   no_log: true
 
