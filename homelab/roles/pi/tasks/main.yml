@@ -58,6 +58,7 @@
   ufw:
     rule: allow
     name: OpenSSH
+    state: enabled
   become: yes
 
 - name: configure fail2ban
