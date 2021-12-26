@@ -5,8 +5,10 @@ Ansible playbook to deploy my homelab (as of right now, a single Raspberry Pi 1 
 ## Usage
 
 ```sh
-ansible-playbook -i hosts/pi playbook.yml
+ansible-playbook -i hosts/pi playbook.yml [--tags "dyndns,pi"]
 ```
+
+Add `--limit pi` to only run on the Raspberry Pi.
 
 ### First run only
 

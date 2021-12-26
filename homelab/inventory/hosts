@@ -1,2 +1,5 @@
 [pi]
 raspberrypi.home ansible_python_interpreter=/usr/bin/python3 ansible_user=pi
+
+[local]
+localhost ansible_connection=local
