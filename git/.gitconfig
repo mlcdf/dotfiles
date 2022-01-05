@@ -13,7 +13,7 @@
 	prune = fetch --prune
 
 	# Amend the curently staged files to the latest commit
-	amend = commit --amend --reuse-message=HEAD
+	amend = commit --amend --reuse-message=HEAD --date="$(date -R)"
 
 	filelog = log -u
 	logtree = log --graph --oneline --decorate --all
@@ -25,6 +25,9 @@
 	tags = tag -l
 	branches = branch -a
 	remotes = remote -v
+	
+	# List alias
+	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
 
 [apply]
 	# Detect whitespace errors when applying a patch
