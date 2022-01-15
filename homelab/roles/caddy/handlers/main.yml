@@ -3,3 +3,10 @@
     name: caddy
     state: restarted
     enabled: yes
+  become: yes
+
+- name: reload caddy
+  shell:
+    cmd: caddy reload
+    chdir: /etc/caddy/
+  become: yes

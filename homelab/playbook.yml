@@ -10,6 +10,7 @@
     - { role: "dyndns", tags: ["dyndns"] }
     - { role: "syncthing", tags: ["syncthing"] }
     - { role: "caddy", tags: ["caddy"] }
+    - { role: "transmission", tags: ["transmission"], become: yes }
 
 - name: configure local machine
   hosts: local

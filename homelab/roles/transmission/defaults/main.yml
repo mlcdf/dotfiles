@@ -48,11 +48,11 @@ transmission_rpc_bind_address: "0.0.0.0"
 transmission_rpc_enabled: true
 transmission_rpc_host_whitelist: ""
 transmission_rpc_host_whitelist_enabled: true
-transmission_rpc_password: "test"
+transmission_rpc_password: "transmission"
 transmission_rpc_port: 9091
 transmission_rpc_url: "/transmission/"
 transmission_rpc_username: "transmission"
-transmission_rpc_whitelist: "192.168.*.*"
+transmission_rpc_whitelist: "127.0.0.1,192.168.*.*"
 transmission_rpc_whitelist_enabled: true
 transmission_scrape_paused_torrents_enabled: true
 transmission_script_torrent_done_enabled: false

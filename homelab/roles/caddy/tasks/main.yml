@@ -1,42 +1,21 @@
 ---
-- name: Ensure dependencies are installed.
-  apt:
-    name:
-      - debian-keyring
-      - debian-archive-keyring
-      - apt-transport-https
-      - gnupg2
-      - curl
-    state: present
-  become: yes
+- name: check if caddy executable is present
+  shell: "which caddy"
+  register: result
+  ignore_errors: true
 
-- name: "add key"
-  apt_key:
-    url: https://dl.cloudsmith.io/public/caddy/stable/gpg.key
-    id: 65760C51EDEA2017CEA2CA15155B6D79CA56EA34
-    state: present
-  become: yes
-
-- name: "add apt repository"
-  apt_repository:
-    repo: "{{ item }}"
-    state: present
-    filename: caddy-stable
-  loop:
-    - "deb https://dl.cloudsmith.io/public/caddy/stable/deb/debian any-version main"
-    - "deb-src https://dl.cloudsmith.io/public/caddy/stable/deb/debian any-version main"
-  become: yes
-
-- name: "install caddy"
-  apt:
-    name: caddy
-    state: present
-    update_cache: yes
-  become: yes
-  notify: restart caddy
+- import_tasks: install.yml
+  when: result.rc != 0
 
 - name: configure
   copy:
     src: "Caddyfile"
     dest: "/etc/caddy/Caddyfile"
+    mode: u=rw,g=rw,o=r
   become: yes
+  notify: reload caddy
+
+- name: copy index page
+  copy:
+    src: index.html
+    dest: /home/pi/public_html/index.html

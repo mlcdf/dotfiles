@@ -1,10 +1,22 @@
-syncthing.pi.mlcdf.fr {
-  reverse_proxy /* 127.0.0.1:8384
-}
+pi {
+	tls internal
 
-pi.mlcdf.fr {
-  root * /home/homelab/public_html
-  file_server {
-    hide .git
-  }
+	route {
+		root * /home/pi/public_html
+		file_server {
+			hide .git
+		}
+	}
+
+	# Transmission
+
+	route /torrents/* {
+		uri strip_prefix /torrents
+		root * /var/lib/transmission-daemon/downloads/
+		file_server browse
+	}
+
+	reverse_proxy /transmission/* localhost:9091
+	redir /transmission /transmission/web/
+	redir /transmission/ /transmission/web/
 }
