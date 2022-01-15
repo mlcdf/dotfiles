@@ -16,7 +16,10 @@ pi {
 		file_server browse
 	}
 
-	reverse_proxy /transmission/* localhost:9091
+	route /transmission/* {
+		reverse_proxy * localhost:9091
+	}
+
 	redir /transmission /transmission/web/
 	redir /transmission/ /transmission/web/
 }
