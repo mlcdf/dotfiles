@@ -1,17 +1,22 @@
 # dotfiles
 
-I am *distro jumping* too much and this makes maintaining a do-everything dotfiles repo a pain. So I try to keep this repository
-as simple as possible and distro independent.
+Dotfiles for my Windows desktop and my Linux laptop.
 
-This repository is managed using `stow`, most directories only containing stuff that will be symlinked from `$HOME`. The few exceptions are:
-- `/backup`: scripts to backup my data
-- `/homelab`: used to deploy my modest homelab
-- `/snippets`: just code snippets
+I am *distro jumping* a lot and constantly switching between my two devices/OS. So I try to keep this repository
+as simple as possible and ~~distro~~ OS independent.
+
+This repository is managed using simple Python scripts.
 
 ## Usage
 
-```sh
-./install.sh
+On the desktop:
+```console
+py desktop.py
+```
+
+On the laptop:
+```console
+python3 laptop.py
 ```
 
 An `.extra` file in the `$HOME` can be use to put things that shouldn't be commited (This file will be `source` by the `.bashrc`).
