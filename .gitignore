@@ -1,3 +1,6 @@
 .extra
 .secrets.ini
 .vscode
+.uuid
+
+.mypy_cache
