@@ -39,7 +39,8 @@ def rm(path: str):
 def apt():
     subprocess.run(
         [
-            "sudo", "-S",
+            "sudo",
+            "-S",
             "apt",
             "install",
             "-y",
