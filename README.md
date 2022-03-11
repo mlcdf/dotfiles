@@ -14,11 +14,13 @@ as simple as possible and distro/OS independent.
 
 On the desktop:
 ```console
+# requires Python 3.10+
 py desktop.py
 ```
 
 On the laptop:
 ```console
+# requires Python 3.8+
 python3 laptop.py
 ```
 
