@@ -3,9 +3,12 @@
 Dotfiles for my Windows desktop and my Linux laptop.
 
 I am *distro jumping* a lot and constantly switching between my two devices/OS. So I try to keep this repository
-as simple as possible and ~~distro~~ OS independent.
+as simple as possible and distro/OS independent.
 
-This repository is managed using simple Python scripts.
+## The good stuff
+
+- it's only some simple Python scripts (obligatory relevant xkcd: [#353](https://xkcd.com/353/))
+- `files/bin/backup-desktop.py` and `files/bin/backup-saas.py` respectively backs up my desktop computer and personal data from SAAS/websites I use.
 
 ## Usage
 
