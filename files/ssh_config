@@ -1,0 +1,3 @@
+host pi
+        HostName pi.home
+        User pi

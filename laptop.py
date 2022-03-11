@@ -89,6 +89,7 @@ def bin():
 
 def ssh():
     os.makedirs(home(".ssh"), exist_ok=True)
+    os.symlink(files("ssh_config"), home([".ssh", "config"]))
 
 
 def sh():
