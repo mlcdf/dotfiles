@@ -98,6 +98,13 @@ def check(backup: Backup):
 
 def remote_backup(backup: Backup):
     """Push the local backup changes to the remote one"""
+    # create the remote container if missing
+    subprocess.run(
+        [rclone, "mkdir", backup.dest],
+        check=True,
+        shell=True,
+    )
+
     subprocess.run(
         [rclone, "sync", backup.src, backup.dest],
         check=True,
