@@ -9,6 +9,7 @@ import platform
 import urllib.request
 
 BACKUPS_LOCATION = os.path.expanduser("~/Backups")
+BINARIES_LOCATION = os.path.expanduser("~/.local/bin")
 
 
 def arch() -> str:
@@ -38,7 +39,7 @@ def install():
         if f"{system()}-{arch()}" in asset["name"]:
             url = asset["browser_download_url"]
 
-    urllib.request.urlretrieve(url, "sc-backup")
+    urllib.request.urlretrieve(url, os.path.join(BINARIES_LOCATION, "sc-backup"))
 
 
 def github():
