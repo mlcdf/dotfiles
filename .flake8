@@ -1,0 +1,3 @@
+[flake8]
+exclude = .git, __pycache__, homelab, fonts
+max-line-length = 120
