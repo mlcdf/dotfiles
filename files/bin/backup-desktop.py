@@ -2,13 +2,13 @@
 
 import argparse
 import dataclasses
+import logging
 import os
 import shutil
 import subprocess
-import logging
 import urllib.request
 import zipfile
-
+from typing import List, Optional
 
 BINARIES = {
     "restic": "https://github.com/restic/restic/releases/download/v0.12.1/restic_0.12.1_windows_amd64.zip",
@@ -22,30 +22,60 @@ TEMP_DIR = os.path.join(os.environ["USERPROFILE"], "AppData", "Local", "Temp")
 class Backup:
     src: str
     dest: str
+    excludes: Optional[List[str]] = None
 
 
-# TODO : Musique, Films, Email, Phone
+EXCLUDE_PATTERNS = [".DS_Store"]
+
+# TODO: Email
 LOCAL_BACKUPS = [
-    # Backup(src="F:\Images", dest="D:\Backups\Desktop\Images"),
-    Backup(src="F:\Documents", dest="D:\Backups\Desktop\Documents"),
+    Backup(
+        src=r"F:\Images",
+        dest=r"D:\Backups\Desktop\Images",
+        excludes=["Exports", "Lightroom Catalog-3 Previews.lrdata"],
+    ),
+    Backup(src=r"F:\Documents", dest=r"D:\Backups\Desktop\Documents"),
 ]
 
 REMOTE_BACKUPS = [
-    Backup(src="D:\Backups\Desktop", dest="remote:desktop"),
+    Backup(src=r"D:\Backups\Desktop", dest="remote:desktop-restic"),
+    Backup(src=r"F:\Musique", dest="remote:desktop/musique"),
+    Backup(src=r"F:\Films", dest="remote:desktop/films"),
+    Backup(src=r"C:\Users\max\Apple\MobileSync", dest="remote:desktop/iphone"),
 ]
 
 
-def install():
-    for name, url in BINARIES.items():
+class Executable:
+    def __init__(self, name: str, force_install=False) -> None:
+        self.name = name
+
+        path = self.which(name)
+        if path is None or force_install:
+            path = self.install(name, BINARIES[name])
+        self.path = path
+
+        logging.info("Using %s %s", name, self.version())
+
+    def exe(self, cmd: List, check=True, **kwargs) -> subprocess.CompletedProcess:
+        cmd.insert(0, self.path)
+        logging.info("%s", " ".join(cmd))
+        return subprocess.run(cmd, check, **kwargs)
+
+    def version(self) -> str:
+        output = subprocess.run([self.path, "version"], check=True, capture_output=True)
+        return output.stdout.decode("utf-8").split(" ")[1].replace("\n-", "")
+
+    @staticmethod
+    def install(name: str, url: str) -> str:
         urllib.request.urlretrieve(url, os.path.join(TEMP_DIR, name + ".zip"))
 
         with zipfile.ZipFile(os.path.join(TEMP_DIR, name + ".zip"), "r") as zip:
-            binary = [f.filename for f in zip.filelist if "exe" in f.filename]
-            if len(binary) > 1:
+            binaries = [f.filename for f in zip.filelist if "exe" in f.filename]
+            if len(binaries) > 1:
                 raise Exception("Multiple binaries found in zip file")
-            if len(binary) > 0:
+            if len(binaries) > 0:
                 raise Exception("No binary found in zip file")
-            binary = binary[0]
+            binary = binaries[0]
 
             extract_dir = os.path.join(
                 os.environ["USERPROFILE"],
@@ -55,24 +85,33 @@ def install():
                 "Extracted",
                 name,
             )
-
             zip.extractall(extract_dir)
 
-            shutil.move(
-                os.path.join(extract_dir, binary),
-                os.path.join(BINARY_LOCATION, name + ".exe"),
-            )
+            dest = os.path.join(BINARY_LOCATION, name + ".exe")
+            shutil.move(os.path.join(extract_dir, binary), dest)
+
+        return dest
+
+    @staticmethod
+    def which(name: str) -> Optional[str]:
+        path = shutil.which(name + ".exe")
+        if path is None:
+            return None
+        else:
+            logging.debug("%s executable found at %s", name, path)
+            return path
 
 
 def init(backup: Backup):
     """Initialize the backup repository"""
     if os.path.exists(os.path.join(backup.dest)):
         return
+    logging.info("Initializing the backup repository")
 
     os.makedirs(os.path.join(backup.dest), exist_ok=True)
 
-    subprocess.run(
-        [restic, "init", "--repo", backup.dest],
+    restic.exe(
+        ["init", "--repo", backup.dest],
         check=True,
         shell=True,
     )
@@ -80,17 +119,22 @@ def init(backup: Backup):
 
 def local_backup(backup: Backup):
     """Perform a local backup"""
-    subprocess.run(
-        [restic, "--repo", backup.dest, "backup", backup.src],
-        check=True,
-        shell=True,
-    )
+    cmd = ["--repo", backup.dest, "backup", backup.src]
+
+    for pattern in EXCLUDE_PATTERNS:
+        cmd += ["--exclude", pattern]
+
+    if backup.excludes:
+        for pattern in backup.excludes:
+            cmd += ["--exclude", pattern]
+
+    restic.exe(cmd)
 
 
 def check(backup: Backup):
     """Check the integrity of the local backup"""
-    subprocess.run(
-        [restic, "--repo", backup.dest, "check"],
+    restic.exe(
+        ["--repo", backup.dest, "check"],
         check=True,
         shell=True,
     )
@@ -99,14 +143,14 @@ def check(backup: Backup):
 def remote_backup(backup: Backup):
     """Push the local backup changes to the remote one"""
     # create the remote container if missing
-    subprocess.run(
-        [rclone, "mkdir", backup.dest],
+    rclone.exe(
+        ["mkdir", backup.dest],
         check=True,
         shell=True,
     )
 
-    subprocess.run(
-        [rclone, "sync", backup.src, backup.dest],
+    rclone.exe(
+        ["sync", "-v", backup.src, backup.dest],
         check=True,
         shell=True,
     )
@@ -132,15 +176,12 @@ def main():
     logging.basicConfig(level=args.level, format="%(levelname)s - %(message)s")
 
     global restic
-    restic = shutil.which("restic.exe")
-    logging.debug("restic executable found at %s", restic)
+    restic = Executable("restic", force_install=args.install)
 
     global rclone
-    rclone = shutil.which("rclone.exe")
-    logging.debug("rclone executable found at %s", rclone)
+    rclone = Executable("rclone", force_install=args.install)
 
     if args.install:
-        install()
         return
 
     for backup in LOCAL_BACKUPS:
