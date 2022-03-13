@@ -6,9 +6,9 @@
 
 import os
 import platform
+import subprocess
 import sys
 from typing import List, Union
-import subprocess
 
 if platform.system().lower() != "linux":
     print("Are you okay?")

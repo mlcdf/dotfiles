@@ -4,8 +4,8 @@
 import argparse
 import json
 import os
-import subprocess
 import platform
+import subprocess
 import urllib.request
 
 BACKUPS_LOCATION = os.path.expanduser("~/Backups")
