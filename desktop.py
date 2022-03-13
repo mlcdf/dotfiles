@@ -2,7 +2,7 @@
 # This script is indented to be run after every changes. Therefore below commands
 # should be idempotent.
 #
-
+from __future__ import annotations
 import os
 import platform
 import shutil
@@ -36,8 +36,8 @@ class RegistryHKEY:
         winreg.SetValueEx(self.key, name, 0, winreg.REG_EXPAND_SZ, value)
 
     def append(self, name: str, value: str):
-        value = self.get(self.key, name) + ";" + value
-        self.set(self.key, name, value)
+        value = self.get(name) + ";" + value
+        self.set(name, value)
 
 
 def home(path: str | List) -> str:
