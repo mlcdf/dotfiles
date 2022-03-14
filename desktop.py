@@ -2,17 +2,25 @@
 # This script is indented to be run after every changes. Therefore below commands
 # should be idempotent.
 #
-from __future__ import annotations
-import os
-import platform
+
 import shutil
+import subprocess
 import sys
 import winreg
-from typing import Any, List
+from typing import Any
 
-if platform.system().lower() != "windows":
+
+if sys.platform != "win32":
     print("Are you okay?")
     sys.exit(1)
+
+
+subprocess.run(
+    [sys.executable, "-m", "pip", "install", "-e", "lib", "--disable-pip-version-check"],
+    check=True,
+)
+
+from suzy import files, home, logger
 
 
 class RegistryHKEY:
@@ -40,30 +48,19 @@ class RegistryHKEY:
         self.set(name, value)
 
 
-def home(path: str | List) -> str:
-    if isinstance(path, list):
-        return os.path.join(os.environ["USERPROFILE"], *path)
-
-    return os.path.join(os.environ["USERPROFILE"], path)
-
-
-def files(path: str | List) -> str:
-    if isinstance(path, list):
-        return os.path.join("files", *path)
-
-    return os.path.join("files", path)
-
-
 def vim():
+    logger.info("Copying vim config")
     shutil.copyfile(files(".vimrc"), home(".vimrc"))
 
 
 def git():
+    logger.info("Copying git config")
     shutil.copyfile(files(".gitconfig"), home(".gitconfig"))
     shutil.copyfile(files(".gitignore"), home(".gitignore"))
 
 
 def bin():
+    logger.info("Copying binaries")
     shutil.copytree(files("bin"), home("Bin"), dirs_exist_ok=True)
 
     with RegistryHKEY("Environment") as env:

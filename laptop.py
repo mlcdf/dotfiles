@@ -5,35 +5,19 @@
 #
 
 import os
-import platform
 import subprocess
 import sys
-from typing import List, Union
 
-if platform.system().lower() != "linux":
+from suzy import files, home, rm
+
+if sys.platform != "linux":
     print("Are you okay?")
     sys.exit(1)
 
 
-def home(path: Union[str, List]) -> str:
-    if isinstance(path, list):
-        return os.path.join(os.environ["HOME"], *path)
-
-    return os.path.join(os.environ["HOME"], path)
-
-
-def files(path: Union[str, List]) -> str:
-    if isinstance(path, list):
-        return os.path.join(os.getcwd(), "files", *path)
-
-    return os.path.join(os.getcwd(), "files", path)
-
-
-def rm(path: str):
-    try:
-        os.remove(path)
-    except FileNotFoundError:
-        pass
+subprocess.run(
+    [sys.executable, "-m", "pip", "install", "-e", "lib", "--disable-pip-version-check"], check=True
+)
 
 
 def apt():
@@ -84,7 +68,7 @@ def git():
 
 def bin():
     rm(home("Bin"))
-    os.symlink(files("bin"), home("Bin"))
+    os.symlink(files("bin"), home("Bin"), target_is_directory=True)
 
 
 def ssh():
