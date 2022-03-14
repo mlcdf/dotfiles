@@ -102,6 +102,10 @@ class Executable:
             return path
 
 
+restic: Executable
+rclone: Executable
+
+
 def init(backup: Backup):
     """Initialize the backup repository"""
     if os.path.exists(os.path.join(backup.dest)):

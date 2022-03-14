@@ -22,6 +22,8 @@ def arch() -> str:
         else:
             return "arm"
 
+    raise Exception("unexpected machine=%s arch=%s" % (platform.machine(), platform.architecture()))
+
 
 def system() -> str:
     return platform.system().lower()

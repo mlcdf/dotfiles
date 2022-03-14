@@ -2,6 +2,8 @@ from __future__ import annotations
 import os
 import sys
 
+from .log import logger
+
 __all__ = ["home", "files", "rm"]
 
 
@@ -29,4 +31,4 @@ def rm(path: str):
     try:
         os.remove(path)
     except FileNotFoundError:
-        pass
+        logger.debug("failed to remote file at %s", path, exc_info=True)
