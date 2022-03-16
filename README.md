@@ -8,7 +8,8 @@ as simple as possible and distro/OS independent.
 ## The good stuff
 
 - it's only some simple Python scripts (obligatory relevant xkcd: [#353](https://xkcd.com/353/))
-- `files/bin/backup-desktop.py` and `files/bin/backup-saas.py` respectively backs up my desktop computer and personal data from SAAS/websites I use.
+- `/files/bin/backup-desktop.py` and `files/bin/backup-saas.py` respectively backs up my desktop computer and personal data from SAAS/websites I use.
+- `/lib` contains my personal Python library (symlinked to site-packages at install).
 
 ## Usage
 
