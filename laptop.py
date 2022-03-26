@@ -95,15 +95,18 @@ def fonts():
 
 
 def go():
+    logger.info("go: install")
     GO_VERSION = "go1.18"
 
     if shutil.which("go"):
-        logger.info("go installation found")
-        if GO_VERSION in (go_version := subprocess.run(["go", "version"], capture_output=True).stdout.decode("utf-8")):
-            logger.info(go_version)
+        
+        if GO_VERSION in (go_version := subprocess.run(["go", "version"], capture_output=True).stdout.decode("utf-8").rstrip()):
+            logger.info("go: found %s", go_version.replace("go ", ""))
             return
+        else:
+            logger.info("go: found %s", go_version.replace("go ", ""))
 
-    logger.info("installing %s", GO_VERSION)
+    logger.info("go: installing %s", GO_VERSION)
 
     wget(f"https://go.dev/dl/{GO_VERSION}.linux-amd64.tar.gz", "/tmp/go.tar.gz", "e85278e98f57cdb150fe8409e6e5df5343ecb13cebf03a5d5ff12bd55a80264f")
     subprocess.run("sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf /tmp/go.tar.gz", check=True, shell=True)
