@@ -31,4 +31,4 @@ def rm(path: str):
     try:
         os.remove(path)
     except FileNotFoundError:
-        logger.debug("failed to remote file at %s", path, exc_info=True)
+        logger.debug("failed to remove file at %s", path, exc_info=True)
