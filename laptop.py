@@ -111,6 +111,12 @@ def go():
     wget(f"https://go.dev/dl/{GO_VERSION}.linux-amd64.tar.gz", "/tmp/go.tar.gz", "e85278e98f57cdb150fe8409e6e5df5343ecb13cebf03a5d5ff12bd55a80264f")
     subprocess.run("sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf /tmp/go.tar.gz", check=True, shell=True)
 
+
+def tmux():
+    logger.info("tmux: configure")
+    rm(home(".tmux.conf"))
+    os.symlink(files(".tmux.conf"), home(".tmux.conf"))
+
 def main():
     apt()
     vim()
@@ -120,6 +126,7 @@ def main():
     sh()
     fonts()
     go()
+    tmux()
 
 if __name__ == "__main__":
     main()
