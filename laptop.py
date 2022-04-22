@@ -82,11 +82,14 @@ def sh():
     rm(home(".maxime"))
     os.symlink(files(".maxime"), home(".maxime"))
 
-    with open(home(".bashrc")) as fd:
+    with open(home(".bashrc"), "r", encoding="utf-8") as fd:
         content = fd.read()
 
-    if "source ~/.maxime" in content:
-        content += "\nsource ~/.maxime"
+        if "source ~/.maxime" not in content:
+            content += "\nsource ~/.maxime"
+
+    with open(home(".bashrc"), "w", encoding="utf-8") as fd:
+        fd.write(content)
 
 
 def fonts():
