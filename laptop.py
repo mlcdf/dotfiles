@@ -8,6 +8,7 @@ import os
 import subprocess
 import sys
 import shutil
+import argparse
 
 
 if sys.platform != "linux":
@@ -18,7 +19,7 @@ subprocess.run(
     [sys.executable, "-m", "pip", "install", "-e", "lib", "--disable-pip-version-check"], check=True
 )
 
-from suzy import files, home, rm, wget, logger
+from suzy import files, home, rm, wget, logger, get
 
 
 def apt():
@@ -97,21 +98,55 @@ def fonts():
     os.symlink(files("fonts"), home(".local/share/fonts"), target_is_directory=True)
 
 
-def go():
-    logger.info("go: install")
-    GO_VERSION = "go1.18"
+def go(version: str="latest"):
+    """
+    Download and install the Go programming language
 
+    Args:
+    - version: specify which Go release to install (ex: go1.22.1 or 1.21.8). Defaults to latest if empty.
+    """
+    logger.info("go: install")
+
+    if version == "latest":
+        data = get("https://go.dev/dl/?mode=json", json=True)
+        version = data[0]["version"]
+
+        for file in data[0]["files"]:
+            if "amd64" not in file["arch"] or "linux" not in file["os"]:
+                continue
+
+            release_hash = file["sha256"]
+            break
+    # use the provided version 
+    else:
+        # support with both go1.xx.y and 1.xx.y version
+        if not version.startswith("go"):
+            version = "go" + version
+    
+        releases = get("https://go.dev/dl/?mode=json&include=all", json=True)
+        for release in releases:
+            if release["version"] == version:
+
+                for file in release["files"]:
+                    if "amd64" not in file["arch"] or "linux" not in file["os"]:
+                        continue
+
+                    release_hash = file["sha256"]
+                    break
+
+                break
+    
+    # check if Go is already installed
     if shutil.which("go"):
-        
-        if GO_VERSION in (go_version := subprocess.run(["go", "version"], capture_output=True).stdout.decode("utf-8").rstrip()):
-            logger.info("go: found %s", go_version.replace("go ", ""))
+        if version in (installed_version := subprocess.run(["go", "version"], capture_output=True).stdout.decode("utf-8").rstrip()):
+            logger.info("go: found %s", installed_version.replace("go ", ""))
             return
         else:
-            logger.info("go: found %s", go_version.replace("go ", ""))
+            logger.info("go: found %s", installed_version.replace("go ", ""))
 
-    logger.info("go: installing %s", GO_VERSION)
+    logger.info("go: installing %s", version)
 
-    wget(f"https://go.dev/dl/{GO_VERSION}.linux-amd64.tar.gz", "/tmp/go.tar.gz", "e85278e98f57cdb150fe8409e6e5df5343ecb13cebf03a5d5ff12bd55a80264f")
+    wget(f"https://go.dev/dl/{version}.linux-amd64.tar.gz", "/tmp/go.tar.gz", release_hash)
     subprocess.run("sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf /tmp/go.tar.gz", check=True, shell=True)
 
 
@@ -121,6 +156,15 @@ def tmux():
     os.symlink(files(".tmux.conf"), home(".tmux.conf"))
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--go", dest='go', action='store_true')
+
+    args = parser.parse_args()
+
+    if args.go:
+        go()
+        return
+
     apt()
     vim()
     git()
