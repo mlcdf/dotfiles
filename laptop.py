@@ -68,9 +68,9 @@ def git():
     os.symlink(files(".gitignore"), home(".gitignore"))
 
 
-def bin():
-    rm(home("Bin"))
-    os.symlink(files("bin"), home("Bin"), target_is_directory=True)
+def programs():
+    rm(home("programs"))
+    os.symlink(files("programs"), home("programs"), target_is_directory=True)
 
 
 def ssh():
