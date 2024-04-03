@@ -1,5 +1,0 @@
----
-
-dyndns_release_baseurl: "https://github.com/mlcdf/dyndns/releases/download"
-dyndns_latest_release: "v0.0.14"
-dyndns_dest: "~/.local/bin"
