@@ -154,3 +154,6 @@ cython_debug/
 .secrets.ini
 .vscode
 .uuid
+
+# programs installed at install
+files/programs/spot

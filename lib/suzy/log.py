@@ -1,7 +1,7 @@
 import logging
 import sys
 
-__all__ = ["ColoredFormatter", "logger"]
+__all__ = ["ColoredFormatter", "logger", "log_prefix"]
 
 
 class ColoredFormatter(logging.Formatter):
@@ -11,7 +11,7 @@ class ColoredFormatter(logging.Formatter):
     red = "\x1b[31;20m"
     bold_red = "\x1b[31;1m"
     reset = "\x1b[0m"
-    fmt = "%(message)s"
+    fmt = "%(prefix)8s: %(message)s"
 
     FORMATS = {
         logging.DEBUG: green + fmt + reset,
@@ -36,3 +36,15 @@ if "-d" in sys.argv or "--debug" in sys.argv:
     logger.setLevel(logging.DEBUG)
 else:
     logger.setLevel(logging.INFO)
+
+logger = logging.LoggerAdapter(logging.getLogger(__name__), {'prefix':''})
+
+def log_prefix(func):
+    def wrapper(*args, **kwargs):
+        logger.extra['prefix'] = func.__name__
+        result = func(*args, **kwargs)
+        logger.info("Done ✅")
+        logger.extra['prefix'] = ""
+        return result
+    return wrapper
+    

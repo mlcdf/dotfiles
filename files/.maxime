@@ -17,7 +17,7 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/$HOME/go/bin
 
-export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/programs"
 
 # Enable aliases to be sudo'ed
 alias sudo="sudo "
@@ -58,3 +58,4 @@ alias dot="code ~/.dotfiles"
 alias reload="source ~/.maxime"
 
 alias dofus="/usr/local/games/ankama-launcher.AppImage"
+  

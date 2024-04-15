@@ -5,7 +5,7 @@ import json as stdjson
 from .fs import *
 from .log import *
 
-__all__ = ["wget"]
+__all__ = ["wget", "get"]
 
 def _hash_file(filename: str, blocksize: int = 4096) -> str:
     hsh = hashlib.sha256()
