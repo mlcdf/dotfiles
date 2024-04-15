@@ -1,28 +1,21 @@
 # dotfiles
 
-Dotfiles for my Windows desktop and my Linux laptop.
+Dotfiles for my Linux machines.
 
-I am *distro jumping* a lot and constantly switching between my two devices/OS. So I try to keep this repository
-as simple as possible and distro/OS independent.
+I am *distro jumping* a lot, so I try to keep this repository as simple as possible.
 
 ## The good stuff
 
-- it's only some simple Python scripts (obligatory relevant xkcd: [#353](https://xkcd.com/353/))
+- [Python!](https://xkcd.com/353/)
 - `/files/bin/backup-desktop.py` and `files/bin/backup-saas.py` respectively backs up my desktop computer and personal data from SAAS/websites I use.
 - `/lib` contains my personal Python library (symlinked to site-packages at install).
 
 ## Usage
 
-On the desktop:
-```console
-# requires Python 3.10+
-py desktop.py
-```
+After configuring the SSH keys, run:
 
-On the laptop:
 ```console
-# requires Python 3.8+
-python3 laptop.py
+sudo apt update && sudo apt install -y git && git clone git@github.com:mlcdf/dotfiles.git ~/.dotfiles && cd ~/.dotfiles && python3 install.py
 ```
 
 An `.extra` file in the `$HOME` can be use to put things that shouldn't be commited (This file will be `source` by the `.bashrc`).
