@@ -6,7 +6,7 @@
 export EDITOR="vim"
 
 # Node.js
-export NPM_PACKAGES="/home/max/.npm-packages"
+export NPM_PACKAGES="$HOME/.npm-packages"
 export NODE_PATH="$NPM_PACKAGES/lib/node_modules${NODE_PATH:+:$NODE_PATH}"
 export PATH="$PATH:$NPM_PACKAGES/bin"
 
@@ -55,6 +55,7 @@ if [ -r ~/.extra ]; then
 fi
 
 alias dot="code ~/.dotfiles"
+alias doti="~/.dotfiles/install.py"
 alias reload="source ~/.maxime"
 
 alias dofus="/usr/local/games/ankama-launcher.AppImage"
