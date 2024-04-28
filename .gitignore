@@ -155,5 +155,6 @@ cython_debug/
 .vscode
 .uuid
 
-# programs installed at install
+# programs installed by install.py
 files/programs/spot
+files/programs/owh

@@ -93,6 +93,15 @@ def programs():
         shell=True,
     )
 
+    subprocess.run(
+        [
+            "curl -L https://github.com/mlcdf/owh/releases/download/v0.0.8/owh-v0.0.8-linux-amd64 -o ~/programs/owh && chmod +x ~/programs/owh"
+        ],
+        check=True,
+        shell=True,
+    )
+    
+
 
 @log_prefix
 def ssh():
@@ -150,7 +159,7 @@ def go(version: str = "latest"):
             break
     # use the provided version
     else:
-        # support with both go1.xx.y and 1.xx.y version
+        # support both go1.xx.y and 1.xx.y version
         if not version.startswith("go"):
             version = "go" + version
 
